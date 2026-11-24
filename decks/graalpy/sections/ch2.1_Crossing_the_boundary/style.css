@@ -1,0 +1,24 @@
+.crossings { display: flex; flex-direction: column; gap: 4px; }
+.crossing {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--c);
+  border-radius: 7px;
+  background: var(--panel);
+  color: var(--text);
+  font: 13.5px var(--ui);
+  text-align: left;
+  cursor: pointer;
+}
+.crossing.d-py { --c: var(--accent); }
+.crossing.d-java { --c: var(--blue); }
+.crossing.d-setup { --c: var(--border-strong); }
+.crossing .dir { color: color-mix(in srgb, var(--c), var(--ink-mix) var(--ink-amt)); font: 600 11px var(--mono); }
+.crossing:hover, .crossing.is-on { background: color-mix(in srgb, var(--c) 12%, var(--panel)); border-color: var(--c); }
+.pane .code { max-height: 470px; overflow: auto; font-size: 12px; }
+.seen { display: flex; flex-wrap: wrap; gap: 6px 16px; color: var(--muted); }
+.seen b { color: var(--text); }

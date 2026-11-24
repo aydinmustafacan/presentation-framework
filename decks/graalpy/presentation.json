@@ -1,0 +1,4 @@
+{
+  "title": "GraalPy: Python on the JVM",
+  "subtitle": "How GraalPy runs Python, and how to ship a Flask app as one runnable JAR"
+}

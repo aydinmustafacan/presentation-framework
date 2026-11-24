@@ -1,0 +1,1885 @@
+{
+ "javac": "javac 25.0.1",
+ "release": 21,
+ "classes": {
+  "ArraySum": {
+   "source": "public class ArraySum {\n    static int total(int[] values) {\n        int sum = 0;\n        for (int v : values) {\n            sum += v;\n        }\n        return sum;\n    }\n}\n",
+   "methods": [
+    {
+     "decl": "static int total(int[])",
+     "code": [
+      {
+       "offset": 0,
+       "op": "iconst_0",
+       "args": ""
+      },
+      {
+       "offset": 1,
+       "op": "istore_1",
+       "args": ""
+      },
+      {
+       "offset": 2,
+       "op": "aload_0",
+       "args": ""
+      },
+      {
+       "offset": 3,
+       "op": "astore_2",
+       "args": ""
+      },
+      {
+       "offset": 4,
+       "op": "aload_2",
+       "args": ""
+      },
+      {
+       "offset": 5,
+       "op": "arraylength",
+       "args": ""
+      },
+      {
+       "offset": 6,
+       "op": "istore_3",
+       "args": ""
+      },
+      {
+       "offset": 7,
+       "op": "iconst_0",
+       "args": ""
+      },
+      {
+       "offset": 8,
+       "op": "istore",
+       "args": "4"
+      },
+      {
+       "offset": 10,
+       "op": "iload",
+       "args": "4"
+      },
+      {
+       "offset": 12,
+       "op": "iload_3",
+       "args": ""
+      },
+      {
+       "offset": 13,
+       "op": "if_icmpge",
+       "args": "33"
+      },
+      {
+       "offset": 16,
+       "op": "aload_2",
+       "args": ""
+      },
+      {
+       "offset": 17,
+       "op": "iload",
+       "args": "4"
+      },
+      {
+       "offset": 19,
+       "op": "iaload",
+       "args": ""
+      },
+      {
+       "offset": 20,
+       "op": "istore",
+       "args": "5"
+      },
+      {
+       "offset": 22,
+       "op": "iload_1",
+       "args": ""
+      },
+      {
+       "offset": 23,
+       "op": "iload",
+       "args": "5"
+      },
+      {
+       "offset": 25,
+       "op": "iadd",
+       "args": ""
+      },
+      {
+       "offset": 26,
+       "op": "istore_1",
+       "args": ""
+      },
+      {
+       "offset": 27,
+       "op": "iinc",
+       "args": "4, 1"
+      },
+      {
+       "offset": 30,
+       "op": "goto",
+       "args": "10"
+      },
+      {
+       "offset": 33,
+       "op": "iload_1",
+       "args": ""
+      },
+      {
+       "offset": 34,
+       "op": "ireturn",
+       "args": ""
+      }
+     ],
+     "lines": [
+      {
+       "line": 3,
+       "start": 0
+      },
+      {
+       "line": 4,
+       "start": 2
+      },
+      {
+       "line": 5,
+       "start": 22
+      },
+      {
+       "line": 4,
+       "start": 27
+      },
+      {
+       "line": 7,
+       "start": 33
+      }
+     ],
+     "exceptions": [],
+     "locals": [
+      {
+       "start": 22,
+       "length": 5,
+       "slot": 5,
+       "name": "v",
+       "sig": "I"
+      },
+      {
+       "start": 0,
+       "length": 35,
+       "slot": 0,
+       "name": "values",
+       "sig": "[I"
+      },
+      {
+       "start": 2,
+       "length": 33,
+       "slot": 1,
+       "name": "sum",
+       "sig": "I"
+      }
+     ]
+    }
+   ],
+   "classFile": "yv66vgAAAEEAGQoAAgADBwAEDAAFAAYBABBqYXZhL2xhbmcvT2JqZWN0AQAGPGluaXQ+AQADKClWBwAIAQAIQXJyYXlTdW0BAARDb2RlAQAPTGluZU51bWJlclRhYmxlAQASTG9jYWxWYXJpYWJsZVRhYmxlAQAEdGhpcwEACkxBcnJheVN1bTsBAAV0b3RhbAEABShbSSlJAQABdgEAAUkBAAZ2YWx1ZXMBAAJbSQEAA3N1bQEADVN0YWNrTWFwVGFibGUHABMBAApTb3VyY2VGaWxlAQANQXJyYXlTdW0uamF2YQAhAAcAAgAAAAAAAgABAAUABgABAAkAAAAvAAEAAQAAAAUqtwABsQAAAAIACgAAAAYAAQAAAAEACwAAAAwAAQAAAAUADAANAAAACAAOAA8AAQAJAAAAjAACAAYAAAAjAzwqTSy+PgM2BBUEHaIAFCwVBC42BRsVBWA8hAQBp//sG6wAAAADAAoAAAAWAAUAAAADAAIABAAWAAUAGwAEACEABwALAAAAIAADABYABQAQABEABQAAACMAEgATAAAAAgAhABQAEQABABUAAAAVAAL/AAoABQcAFgEHABYBAQAA+AAWAAEAFwAAAAIAGA=="
+  },
+  "Counter": {
+   "source": "public class Counter {\n    private int count;\n\n    void increment() {\n        count++;\n    }\n\n    static Counter create() {\n        Counter o = new Counter();\n        o.increment();\n        return o;\n    }\n}\n",
+   "methods": [
+    {
+     "decl": "void increment()",
+     "code": [
+      {
+       "offset": 0,
+       "op": "aload_0",
+       "args": ""
+      },
+      {
+       "offset": 1,
+       "op": "dup",
+       "args": ""
+      },
+      {
+       "offset": 2,
+       "op": "getfield",
+       "args": "#7",
+       "comment": "Field count:I"
+      },
+      {
+       "offset": 5,
+       "op": "iconst_1",
+       "args": ""
+      },
+      {
+       "offset": 6,
+       "op": "iadd",
+       "args": ""
+      },
+      {
+       "offset": 7,
+       "op": "putfield",
+       "args": "#7",
+       "comment": "Field count:I"
+      },
+      {
+       "offset": 10,
+       "op": "return",
+       "args": ""
+      }
+     ],
+     "lines": [
+      {
+       "line": 5,
+       "start": 0
+      },
+      {
+       "line": 6,
+       "start": 10
+      }
+     ],
+     "exceptions": [],
+     "locals": [
+      {
+       "start": 0,
+       "length": 11,
+       "slot": 0,
+       "name": "this",
+       "sig": "LCounter;"
+      }
+     ]
+    },
+    {
+     "decl": "static Counter create()",
+     "code": [
+      {
+       "offset": 0,
+       "op": "new",
+       "args": "#8",
+       "comment": "class Counter"
+      },
+      {
+       "offset": 3,
+       "op": "dup",
+       "args": ""
+      },
+      {
+       "offset": 4,
+       "op": "invokespecial",
+       "args": "#13",
+       "comment": "Method \"<init>\":()V"
+      },
+      {
+       "offset": 7,
+       "op": "astore_0",
+       "args": ""
+      },
+      {
+       "offset": 8,
+       "op": "aload_0",
+       "args": ""
+      },
+      {
+       "offset": 9,
+       "op": "invokevirtual",
+       "args": "#14",
+       "comment": "Method increment:()V"
+      },
+      {
+       "offset": 12,
+       "op": "aload_0",
+       "args": ""
+      },
+      {
+       "offset": 13,
+       "op": "areturn",
+       "args": ""
+      }
+     ],
+     "lines": [
+      {
+       "line": 9,
+       "start": 0
+      },
+      {
+       "line": 10,
+       "start": 8
+      },
+      {
+       "line": 11,
+       "start": 12
+      }
+     ],
+     "exceptions": [],
+     "locals": [
+      {
+       "start": 8,
+       "length": 6,
+       "slot": 0,
+       "name": "o",
+       "sig": "LCounter;"
+      }
+     ]
+    }
+   ],
+   "classFile": "yv66vgAAAEEAGwoAAgADBwAEDAAFAAYBABBqYXZhL2xhbmcvT2JqZWN0AQAGPGluaXQ+AQADKClWCQAIAAkHAAoMAAsADAEAB0NvdW50ZXIBAAVjb3VudAEAAUkKAAgAAwoACAAPDAAQAAYBAAlpbmNyZW1lbnQBAARDb2RlAQAPTGluZU51bWJlclRhYmxlAQASTG9jYWxWYXJpYWJsZVRhYmxlAQAEdGhpcwEACUxDb3VudGVyOwEABmNyZWF0ZQEACygpTENvdW50ZXI7AQABbwEAClNvdXJjZUZpbGUBAAxDb3VudGVyLmphdmEAIQAIAAIAAAABAAIACwAMAAAAAwABAAUABgABABEAAAAvAAEAAQAAAAUqtwABsQAAAAIAEgAAAAYAAQAAAAEAEwAAAAwAAQAAAAUAFAAVAAAAAAAQAAYAAQARAAAAOQADAAEAAAALKlm0AAcEYLUAB7EAAAACABIAAAAKAAIAAAAFAAoABgATAAAADAABAAAACwAUABUAAAAIABYAFwABABEAAABAAAIAAQAAAA67AAhZtwANSyq2AA4qsAAAAAIAEgAAAA4AAwAAAAkACAAKAAwACwATAAAADAABAAgABgAYABUAAAABABkAAAACABo="
+  },
+  "Exceptions": {
+   "source": "public class Exceptions {\n    static int parse(String s) {\n        try {\n            return Integer.parseInt(s);\n        } catch (NumberFormatException e) {\n            return -1;\n        } finally {\n            System.out.println(\"done\");\n        }\n    }\n}\n",
+   "methods": [
+    {
+     "decl": "static int parse(java.lang.String)",
+     "code": [
+      {
+       "offset": 0,
+       "op": "aload_0",
+       "args": ""
+      },
+      {
+       "offset": 1,
+       "op": "invokestatic",
+       "args": "#7",
+       "comment": "Method java/lang/Integer.parseInt:(Ljava/lang/String;)I"
+      },
+      {
+       "offset": 4,
+       "op": "istore_1",
+       "args": ""
+      },
+      {
+       "offset": 5,
+       "op": "getstatic",
+       "args": "#13",
+       "comment": "Field java/lang/System.out:Ljava/io/PrintStream;"
+      },
+      {
+       "offset": 8,
+       "op": "ldc",
+       "args": "#19",
+       "comment": "String done"
+      },
+      {
+       "offset": 10,
+       "op": "invokevirtual",
+       "args": "#21",
+       "comment": "Method java/io/PrintStream.println:(Ljava/lang/String;)V"
+      },
+      {
+       "offset": 13,
+       "op": "iload_1",
+       "args": ""
+      },
+      {
+       "offset": 14,
+       "op": "ireturn",
+       "args": ""
+      },
+      {
+       "offset": 15,
+       "op": "astore_1",
+       "args": ""
+      },
+      {
+       "offset": 16,
+       "op": "iconst_m1",
+       "args": ""
+      },
+      {
+       "offset": 17,
+       "op": "istore_2",
+       "args": ""
+      },
+      {
+       "offset": 18,
+       "op": "getstatic",
+       "args": "#13",
+       "comment": "Field java/lang/System.out:Ljava/io/PrintStream;"
+      },
+      {
+       "offset": 21,
+       "op": "ldc",
+       "args": "#19",
+       "comment": "String done"
+      },
+      {
+       "offset": 23,
+       "op": "invokevirtual",
+       "args": "#21",
+       "comment": "Method java/io/PrintStream.println:(Ljava/lang/String;)V"
+      },
+      {
+       "offset": 26,
+       "op": "iload_2",
+       "args": ""
+      },
+      {
+       "offset": 27,
+       "op": "ireturn",
+       "args": ""
+      },
+      {
+       "offset": 28,
+       "op": "astore_3",
+       "args": ""
+      },
+      {
+       "offset": 29,
+       "op": "getstatic",
+       "args": "#13",
+       "comment": "Field java/lang/System.out:Ljava/io/PrintStream;"
+      },
+      {
+       "offset": 32,
+       "op": "ldc",
+       "args": "#19",
+       "comment": "String done"
+      },
+      {
+       "offset": 34,
+       "op": "invokevirtual",
+       "args": "#21",
+       "comment": "Method java/io/PrintStream.println:(Ljava/lang/String;)V"
+      },
+      {
+       "offset": 37,
+       "op": "aload_3",
+       "args": ""
+      },
+      {
+       "offset": 38,
+       "op": "athrow",
+       "args": ""
+      }
+     ],
+     "lines": [
+      {
+       "line": 4,
+       "start": 0
+      },
+      {
+       "line": 8,
+       "start": 5
+      },
+      {
+       "line": 4,
+       "start": 13
+      },
+      {
+       "line": 5,
+       "start": 15
+      },
+      {
+       "line": 6,
+       "start": 16
+      },
+      {
+       "line": 8,
+       "start": 18
+      },
+      {
+       "line": 6,
+       "start": 26
+      },
+      {
+       "line": 8,
+       "start": 28
+      },
+      {
+       "line": 9,
+       "start": 37
+      }
+     ],
+     "exceptions": [
+      {
+       "from": 0,
+       "to": 5,
+       "target": 15,
+       "type": "java/lang/NumberFormatException"
+      },
+      {
+       "from": 0,
+       "to": 5,
+       "target": 28,
+       "type": "any"
+      },
+      {
+       "from": 15,
+       "to": 18,
+       "target": 28,
+       "type": "any"
+      }
+     ],
+     "locals": [
+      {
+       "start": 16,
+       "length": 12,
+       "slot": 1,
+       "name": "e",
+       "sig": "Ljava/lang/NumberFormatException;"
+      },
+      {
+       "start": 0,
+       "length": 39,
+       "slot": 0,
+       "name": "s",
+       "sig": "Ljava/lang/String;"
+      }
+     ]
+    }
+   ],
+   "classFile": "yv66vgAAAEEALgoAAgADBwAEDAAFAAYBABBqYXZhL2xhbmcvT2JqZWN0AQAGPGluaXQ+AQADKClWCgAIAAkHAAoMAAsADAEAEWphdmEvbGFuZy9JbnRlZ2VyAQAIcGFyc2VJbnQBABUoTGphdmEvbGFuZy9TdHJpbmc7KUkJAA4ADwcAEAwAEQASAQAQamF2YS9sYW5nL1N5c3RlbQEAA291dAEAFUxqYXZhL2lvL1ByaW50U3RyZWFtOwgAFAEABGRvbmUKABYAFwcAGAwAGQAaAQATamF2YS9pby9QcmludFN0cmVhbQEAB3ByaW50bG4BABUoTGphdmEvbGFuZy9TdHJpbmc7KVYHABwBAB9qYXZhL2xhbmcvTnVtYmVyRm9ybWF0RXhjZXB0aW9uBwAeAQAKRXhjZXB0aW9ucwEABENvZGUBAA9MaW5lTnVtYmVyVGFibGUBABJMb2NhbFZhcmlhYmxlVGFibGUBAAR0aGlzAQAMTEV4Y2VwdGlvbnM7AQAFcGFyc2UBAAFlAQAhTGphdmEvbGFuZy9OdW1iZXJGb3JtYXRFeGNlcHRpb247AQABcwEAEkxqYXZhL2xhbmcvU3RyaW5nOwEADVN0YWNrTWFwVGFibGUHACsBABNqYXZhL2xhbmcvVGhyb3dhYmxlAQAKU291cmNlRmlsZQEAD0V4Y2VwdGlvbnMuamF2YQAhAB0AAgAAAAAAAgABAAUABgABAB8AAAAvAAEAAQAAAAUqtwABsQAAAAIAIAAAAAYAAQAAAAEAIQAAAAwAAQAAAAUAIgAjAAAACAAkAAwAAQAfAAAAowACAAQAAAAnKrgABzyyAA0SE7YAFRusTAI9sgANEhO2ABUcrE6yAA0SE7YAFS2/AAMAAAAFAA8AGwAAAAUAHAAAAA8AEgAcAAAAAwAgAAAAJgAJAAAABAAFAAgADQAEAA8ABQAQAAYAEgAIABoABgAcAAgAJQAJACEAAAAWAAIAEAAMACUAJgABAAAAJwAnACgAAAApAAAACgACTwcAG0wHACoAAQAsAAAAAgAt"
+  },
+  "Hello": {
+   "source": "public class Hello {\n    public static void main(String[] args) {\n        String who = \"JVM\";\n        System.out.println(\"Hello, \" + who);\n    }\n}\n",
+   "methods": [
+    {
+     "decl": "public static void main(java.lang.String[])",
+     "code": [
+      {
+       "offset": 0,
+       "op": "ldc",
+       "args": "#7",
+       "comment": "String JVM"
+      },
+      {
+       "offset": 2,
+       "op": "astore_1",
+       "args": ""
+      },
+      {
+       "offset": 3,
+       "op": "getstatic",
+       "args": "#9",
+       "comment": "Field java/lang/System.out:Ljava/io/PrintStream;"
+      },
+      {
+       "offset": 6,
+       "op": "aload_1",
+       "args": ""
+      },
+      {
+       "offset": 7,
+       "op": "invokedynamic",
+       "args": "#15, 0",
+       "comment": "InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;"
+      },
+      {
+       "offset": 12,
+       "op": "invokevirtual",
+       "args": "#19",
+       "comment": "Method java/io/PrintStream.println:(Ljava/lang/String;)V"
+      },
+      {
+       "offset": 15,
+       "op": "return",
+       "args": ""
+      }
+     ],
+     "lines": [
+      {
+       "line": 3,
+       "start": 0
+      },
+      {
+       "line": 4,
+       "start": 3
+      },
+      {
+       "line": 5,
+       "start": 15
+      }
+     ],
+     "exceptions": [],
+     "locals": [
+      {
+       "start": 0,
+       "length": 16,
+       "slot": 0,
+       "name": "args",
+       "sig": "[Ljava/lang/String;"
+      },
+      {
+       "start": 3,
+       "length": 13,
+       "slot": 1,
+       "name": "who",
+       "sig": "Ljava/lang/String;"
+      }
+     ]
+    }
+   ],
+   "classFile": "yv66vgAAAEEANwoAAgADBwAEDAAFAAYBABBqYXZhL2xhbmcvT2JqZWN0AQAGPGluaXQ+AQADKClWCAAIAQADSlZNCQAKAAsHAAwMAA0ADgEAEGphdmEvbGFuZy9TeXN0ZW0BAANvdXQBABVMamF2YS9pby9QcmludFN0cmVhbTsSAAAAEAwAEQASAQAXbWFrZUNvbmNhdFdpdGhDb25zdGFudHMBACYoTGphdmEvbGFuZy9TdHJpbmc7KUxqYXZhL2xhbmcvU3RyaW5nOwoAFAAVBwAWDAAXABgBABNqYXZhL2lvL1ByaW50U3RyZWFtAQAHcHJpbnRsbgEAFShMamF2YS9sYW5nL1N0cmluZzspVgcAGgEABUhlbGxvAQAEQ29kZQEAD0xpbmVOdW1iZXJUYWJsZQEAEkxvY2FsVmFyaWFibGVUYWJsZQEABHRoaXMBAAdMSGVsbG87AQAEbWFpbgEAFihbTGphdmEvbGFuZy9TdHJpbmc7KVYBAARhcmdzAQATW0xqYXZhL2xhbmcvU3RyaW5nOwEAA3dobwEAEkxqYXZhL2xhbmcvU3RyaW5nOwEAClNvdXJjZUZpbGUBAApIZWxsby5qYXZhAQAQQm9vdHN0cmFwTWV0aG9kcwgAKgEACEhlbGxvLCABDwYALAoALQAuBwAvDAARADABACRqYXZhL2xhbmcvaW52b2tlL1N0cmluZ0NvbmNhdEZhY3RvcnkBAJgoTGphdmEvbGFuZy9pbnZva2UvTWV0aG9kSGFuZGxlcyRMb29rdXA7TGphdmEvbGFuZy9TdHJpbmc7TGphdmEvbGFuZy9pbnZva2UvTWV0aG9kVHlwZTtMamF2YS9sYW5nL1N0cmluZztbTGphdmEvbGFuZy9PYmplY3Q7KUxqYXZhL2xhbmcvaW52b2tlL0NhbGxTaXRlOwEADElubmVyQ2xhc3NlcwcAMwEAJWphdmEvbGFuZy9pbnZva2UvTWV0aG9kSGFuZGxlcyRMb29rdXAHADUBAB5qYXZhL2xhbmcvaW52b2tlL01ldGhvZEhhbmRsZXMBAAZMb29rdXAAIQAZAAIAAAAAAAIAAQAFAAYAAQAbAAAALwABAAEAAAAFKrcAAbEAAAACABwAAAAGAAEAAAABAB0AAAAMAAEAAAAFAB4AHwAAAAkAIAAhAAEAGwAAAEwAAgACAAAAEBIHTLIACSu6AA8AALYAE7EAAAACABwAAAAOAAMAAAADAAMABAAPAAUAHQAAABYAAgAAABAAIgAjAAAAAwANACQAJQABAAMAJgAAAAIAJwAoAAAACAABACsAAQApADEAAAAKAAEAMgA0ADYAGQ=="
+  },
+  "Invocations": {
+   "source": "import java.util.ArrayList;\nimport java.util.List;\n\npublic class Invocations {\n    private int secret() { return 42; }\n\n    void calls() {\n        List<Integer> list = new ArrayList<>();\n        list.add(secret());\n        String s = list.toString();\n        int n = Math.max(1, s.length());\n        Runnable r = () -> System.out.println(n);\n        r.run();\n    }\n}\n",
+   "methods": [
+    {
+     "decl": "private int secret()",
+     "code": [
+      {
+       "offset": 0,
+       "op": "bipush",
+       "args": "42"
+      },
+      {
+       "offset": 2,
+       "op": "ireturn",
+       "args": ""
+      }
+     ],
+     "lines": [
+      {
+       "line": 5,
+       "start": 0
+      }
+     ],
+     "exceptions": [],
+     "locals": [
+      {
+       "start": 0,
+       "length": 3,
+       "slot": 0,
+       "name": "this",
+       "sig": "LInvocations;"
+      }
+     ]
+    },
+    {
+     "decl": "void calls()",
+     "code": [
+      {
+       "offset": 0,
+       "op": "new",
+       "args": "#7",
+       "comment": "class java/util/ArrayList"
+      },
+      {
+       "offset": 3,
+       "op": "dup",
+       "args": ""
+      },
+      {
+       "offset": 4,
+       "op": "invokespecial",
+       "args": "#9",
+       "comment": "Method java/util/ArrayList.\"<init>\":()V"
+      },
+      {
+       "offset": 7,
+       "op": "astore_1",
+       "args": ""
+      },
+      {
+       "offset": 8,
+       "op": "aload_1",
+       "args": ""
+      },
+      {
+       "offset": 9,
+       "op": "aload_0",
+       "args": ""
+      },
+      {
+       "offset": 10,
+       "op": "invokevirtual",
+       "args": "#10",
+       "comment": "Method secret:()I"
+      },
+      {
+       "offset": 13,
+       "op": "invokestatic",
+       "args": "#16",
+       "comment": "Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;"
+      },
+      {
+       "offset": 16,
+       "op": "invokeinterface",
+       "args": "#22, 2",
+       "comment": "InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z"
+      },
+      {
+       "offset": 21,
+       "op": "pop",
+       "args": ""
+      },
+      {
+       "offset": 22,
+       "op": "aload_1",
+       "args": ""
+      },
+      {
+       "offset": 23,
+       "op": "invokeinterface",
+       "args": "#28, 1",
+       "comment": "InterfaceMethod java/util/List.toString:()Ljava/lang/String;"
+      },
+      {
+       "offset": 28,
+       "op": "astore_2",
+       "args": ""
+      },
+      {
+       "offset": 29,
+       "op": "iconst_1",
+       "args": ""
+      },
+      {
+       "offset": 30,
+       "op": "aload_2",
+       "args": ""
+      },
+      {
+       "offset": 31,
+       "op": "invokevirtual",
+       "args": "#32",
+       "comment": "Method java/lang/String.length:()I"
+      },
+      {
+       "offset": 34,
+       "op": "invokestatic",
+       "args": "#37",
+       "comment": "Method java/lang/Math.max:(II)I"
+      },
+      {
+       "offset": 37,
+       "op": "istore_3",
+       "args": ""
+      },
+      {
+       "offset": 38,
+       "op": "iload_3",
+       "args": ""
+      },
+      {
+       "offset": 39,
+       "op": "invokedynamic",
+       "args": "#43, 0",
+       "comment": "InvokeDynamic #0:run:(I)Ljava/lang/Runnable;"
+      },
+      {
+       "offset": 44,
+       "op": "astore",
+       "args": "4"
+      },
+      {
+       "offset": 46,
+       "op": "aload",
+       "args": "4"
+      },
+      {
+       "offset": 48,
+       "op": "invokeinterface",
+       "args": "#47, 1",
+       "comment": "InterfaceMethod java/lang/Runnable.run:()V"
+      },
+      {
+       "offset": 53,
+       "op": "return",
+       "args": ""
+      }
+     ],
+     "lines": [
+      {
+       "line": 8,
+       "start": 0
+      },
+      {
+       "line": 9,
+       "start": 8
+      },
+      {
+       "line": 10,
+       "start": 22
+      },
+      {
+       "line": 11,
+       "start": 29
+      },
+      {
+       "line": 12,
+       "start": 38
+      },
+      {
+       "line": 13,
+       "start": 46
+      },
+      {
+       "line": 14,
+       "start": 53
+      }
+     ],
+     "exceptions": [],
+     "locals": [
+      {
+       "start": 0,
+       "length": 54,
+       "slot": 0,
+       "name": "this",
+       "sig": "LInvocations;"
+      },
+      {
+       "start": 8,
+       "length": 46,
+       "slot": 1,
+       "name": "list",
+       "sig": "Ljava/util/List;"
+      },
+      {
+       "start": 29,
+       "length": 25,
+       "slot": 2,
+       "name": "s",
+       "sig": "Ljava/lang/String;"
+      },
+      {
+       "start": 38,
+       "length": 16,
+       "slot": 3,
+       "name": "n",
+       "sig": "I"
+      },
+      {
+       "start": 46,
+       "length": 8,
+       "slot": 4,
+       "name": "r",
+       "sig": "Ljava/lang/Runnable;"
+      }
+     ]
+    },
+    {
+     "decl": "private static void lambda$calls$0(int)",
+     "code": [
+      {
+       "offset": 0,
+       "op": "getstatic",
+       "args": "#51",
+       "comment": "Field java/lang/System.out:Ljava/io/PrintStream;"
+      },
+      {
+       "offset": 3,
+       "op": "iload_0",
+       "args": ""
+      },
+      {
+       "offset": 4,
+       "op": "invokevirtual",
+       "args": "#57",
+       "comment": "Method java/io/PrintStream.println:(I)V"
+      },
+      {
+       "offset": 7,
+       "op": "return",
+       "args": ""
+      }
+     ],
+     "lines": [
+      {
+       "line": 12,
+       "start": 0
+      }
+     ],
+     "exceptions": [],
+     "locals": [
+      {
+       "start": 0,
+       "length": 8,
+       "slot": 0,
+       "name": "n",
+       "sig": "I"
+      }
+     ]
+    }
+   ],
+   "classFile": "yv66vgAAAEEAZAoAAgADBwAEDAAFAAYBABBqYXZhL2xhbmcvT2JqZWN0AQAGPGluaXQ+AQADKClWBwAIAQATamF2YS91dGlsL0FycmF5TGlzdAoABwADCgALAAwHAA0MAA4ADwEAC0ludm9jYXRpb25zAQAGc2VjcmV0AQADKClJCgARABIHABMMABQAFQEAEWphdmEvbGFuZy9JbnRlZ2VyAQAHdmFsdWVPZgEAFihJKUxqYXZhL2xhbmcvSW50ZWdlcjsLABcAGAcAGQwAGgAbAQAOamF2YS91dGlsL0xpc3QBAANhZGQBABUoTGphdmEvbGFuZy9PYmplY3Q7KVoLABcAHQwAHgAfAQAIdG9TdHJpbmcBABQoKUxqYXZhL2xhbmcvU3RyaW5nOwoAIQAiBwAjDAAkAA8BABBqYXZhL2xhbmcvU3RyaW5nAQAGbGVuZ3RoCgAmACcHACgMACkAKgEADmphdmEvbGFuZy9NYXRoAQADbWF4AQAFKElJKUkSAAAALAwALQAuAQADcnVuAQAXKEkpTGphdmEvbGFuZy9SdW5uYWJsZTsLADAAMQcAMgwALQAGAQASamF2YS9sYW5nL1J1bm5hYmxlCQA0ADUHADYMADcAOAEAEGphdmEvbGFuZy9TeXN0ZW0BAANvdXQBABVMamF2YS9pby9QcmludFN0cmVhbTsKADoAOwcAPAwAPQA+AQATamF2YS9pby9QcmludFN0cmVhbQEAB3ByaW50bG4BAAQoSSlWAQAEQ29kZQEAD0xpbmVOdW1iZXJUYWJsZQEAEkxvY2FsVmFyaWFibGVUYWJsZQEABHRoaXMBAA1MSW52b2NhdGlvbnM7AQAFY2FsbHMBAARsaXN0AQAQTGphdmEvdXRpbC9MaXN0OwEAAXMBABJMamF2YS9sYW5nL1N0cmluZzsBAAFuAQABSQEAAXIBABRMamF2YS9sYW5nL1J1bm5hYmxlOwEAFkxvY2FsVmFyaWFibGVUeXBlVGFibGUBACVMamF2YS91dGlsL0xpc3Q8TGphdmEvbGFuZy9JbnRlZ2VyOz47AQAObGFtYmRhJGNhbGxzJDABAApTb3VyY2VGaWxlAQAQSW52b2NhdGlvbnMuamF2YQEAEEJvb3RzdHJhcE1ldGhvZHMQAAYPBgBVCgALAFYMAE8APg8GAFgKAFkAWgcAWwwAXABdAQAiamF2YS9sYW5nL2ludm9rZS9MYW1iZGFNZXRhZmFjdG9yeQEAC21ldGFmYWN0b3J5AQDMKExqYXZhL2xhbmcvaW52b2tlL01ldGhvZEhhbmRsZXMkTG9va3VwO0xqYXZhL2xhbmcvU3RyaW5nO0xqYXZhL2xhbmcvaW52b2tlL01ldGhvZFR5cGU7TGphdmEvbGFuZy9pbnZva2UvTWV0aG9kVHlwZTtMamF2YS9sYW5nL2ludm9rZS9NZXRob2RIYW5kbGU7TGphdmEvbGFuZy9pbnZva2UvTWV0aG9kVHlwZTspTGphdmEvbGFuZy9pbnZva2UvQ2FsbFNpdGU7AQAMSW5uZXJDbGFzc2VzBwBgAQAlamF2YS9sYW5nL2ludm9rZS9NZXRob2RIYW5kbGVzJExvb2t1cAcAYgEAHmphdmEvbGFuZy9pbnZva2UvTWV0aG9kSGFuZGxlcwEABkxvb2t1cAAhAAsAAgAAAAAABAABAAUABgABAD8AAAAvAAEAAQAAAAUqtwABsQAAAAIAQAAAAAYAAQAAAAQAQQAAAAwAAQAAAAUAQgBDAAAAAgAOAA8AAQA/AAAALQABAAEAAAADECqsAAAAAgBAAAAABgABAAAABQBBAAAADAABAAAAAwBCAEMAAAAAAEQABgABAD8AAACyAAIABQAAADa7AAdZtwAJTCsqtgAKuAAQuQAWAgBXK7kAHAEATQQstgAguAAlPh26ACsAADoEGQS5AC8BALEAAAADAEAAAAAeAAcAAAAIAAgACQAWAAoAHQALACYADAAuAA0ANQAOAEEAAAA0AAUAAAA2AEIAQwAAAAgALgBFAEYAAQAdABkARwBIAAIAJgAQAEkASgADAC4ACABLAEwABABNAAAADAABAAgALgBFAE4AARAKAE8APgABAD8AAAAyAAIAAQAAAAiyADMatgA5sQAAAAIAQAAAAAYAAQAAAAwAQQAAAAwAAQAAAAgASQBKAAAAAwBQAAAAAgBRAFIAAAAMAAEAVwADAFMAVABTAF4AAAAKAAEAXwBhAGMAGQ=="
+  },
+  "Point": {
+   "source": "public class Point {\n    private final int x;\n    private final int y;\n\n    public Point(int x, int y) {\n        this.x = x;\n        this.y = y;\n    }\n\n    public int dist2() {\n        return x * x + y * y;\n    }\n}\n",
+   "methods": [
+    {
+     "decl": "public Point(int, int)",
+     "code": [
+      {
+       "offset": 0,
+       "op": "aload_0",
+       "args": ""
+      },
+      {
+       "offset": 1,
+       "op": "invokespecial",
+       "args": "#1",
+       "comment": "Method java/lang/Object.\"<init>\":()V"
+      },
+      {
+       "offset": 4,
+       "op": "aload_0",
+       "args": ""
+      },
+      {
+       "offset": 5,
+       "op": "iload_1",
+       "args": ""
+      },
+      {
+       "offset": 6,
+       "op": "putfield",
+       "args": "#7",
+       "comment": "Field x:I"
+      },
+      {
+       "offset": 9,
+       "op": "aload_0",
+       "args": ""
+      },
+      {
+       "offset": 10,
+       "op": "iload_2",
+       "args": ""
+      },
+      {
+       "offset": 11,
+       "op": "putfield",
+       "args": "#13",
+       "comment": "Field y:I"
+      },
+      {
+       "offset": 14,
+       "op": "return",
+       "args": ""
+      }
+     ],
+     "lines": [
+      {
+       "line": 5,
+       "start": 0
+      },
+      {
+       "line": 6,
+       "start": 4
+      },
+      {
+       "line": 7,
+       "start": 9
+      },
+      {
+       "line": 8,
+       "start": 14
+      }
+     ],
+     "exceptions": [],
+     "locals": [
+      {
+       "start": 0,
+       "length": 15,
+       "slot": 0,
+       "name": "this",
+       "sig": "LPoint;"
+      },
+      {
+       "start": 0,
+       "length": 15,
+       "slot": 1,
+       "name": "x",
+       "sig": "I"
+      },
+      {
+       "start": 0,
+       "length": 15,
+       "slot": 2,
+       "name": "y",
+       "sig": "I"
+      }
+     ]
+    },
+    {
+     "decl": "public int dist2()",
+     "code": [
+      {
+       "offset": 0,
+       "op": "aload_0",
+       "args": ""
+      },
+      {
+       "offset": 1,
+       "op": "getfield",
+       "args": "#7",
+       "comment": "Field x:I"
+      },
+      {
+       "offset": 4,
+       "op": "aload_0",
+       "args": ""
+      },
+      {
+       "offset": 5,
+       "op": "getfield",
+       "args": "#7",
+       "comment": "Field x:I"
+      },
+      {
+       "offset": 8,
+       "op": "imul",
+       "args": ""
+      },
+      {
+       "offset": 9,
+       "op": "aload_0",
+       "args": ""
+      },
+      {
+       "offset": 10,
+       "op": "getfield",
+       "args": "#13",
+       "comment": "Field y:I"
+      },
+      {
+       "offset": 13,
+       "op": "aload_0",
+       "args": ""
+      },
+      {
+       "offset": 14,
+       "op": "getfield",
+       "args": "#13",
+       "comment": "Field y:I"
+      },
+      {
+       "offset": 17,
+       "op": "imul",
+       "args": ""
+      },
+      {
+       "offset": 18,
+       "op": "iadd",
+       "args": ""
+      },
+      {
+       "offset": 19,
+       "op": "ireturn",
+       "args": ""
+      }
+     ],
+     "lines": [
+      {
+       "line": 11,
+       "start": 0
+      }
+     ],
+     "exceptions": [],
+     "locals": [
+      {
+       "start": 0,
+       "length": 20,
+       "slot": 0,
+       "name": "this",
+       "sig": "LPoint;"
+      }
+     ]
+    }
+   ],
+   "classFile": "yv66vgAAAEEAGgoAAgADBwAEDAAFAAYBABBqYXZhL2xhbmcvT2JqZWN0AQAGPGluaXQ+AQADKClWCQAIAAkHAAoMAAsADAEABVBvaW50AQABeAEAAUkJAAgADgwADwAMAQABeQEABShJSSlWAQAEQ29kZQEAD0xpbmVOdW1iZXJUYWJsZQEAEkxvY2FsVmFyaWFibGVUYWJsZQEABHRoaXMBAAdMUG9pbnQ7AQAFZGlzdDIBAAMoKUkBAApTb3VyY2VGaWxlAQAKUG9pbnQuamF2YQAhAAgAAgAAAAIAEgALAAwAAAASAA8ADAAAAAIAAQAFABAAAQARAAAAWQACAAMAAAAPKrcAASobtQAHKhy1AA2xAAAAAgASAAAAEgAEAAAABQAEAAYACQAHAA4ACAATAAAAIAADAAAADwAUABUAAAAAAA8ACwAMAAEAAAAPAA8ADAACAAEAFgAXAAEAEQAAAD4AAwABAAAAFCq0AAcqtAAHaCq0AA0qtAANaGCsAAAAAgASAAAABgABAAAACwATAAAADAABAAAAFAAUABUAAAABABgAAAACABk="
+  },
+  "Sim": {
+   "source": "public class Sim {\n    static int arith(int a, int b, int c) {\n        return (a + b) * c;\n    }\n\n    static int sum(int n) {\n        int s = 0;\n        for (int i = 1; i <= n; i++) {\n            s += i;\n        }\n        return s;\n    }\n\n    static int gcd(int a, int b) {\n        while (b != 0) {\n            int t = b;\n            b = a % b;\n            a = t;\n        }\n        return a;\n    }\n\n    static int fact(int n) {\n        if (n <= 1) return 1;\n        return n * fact(n - 1);\n    }\n\n    static int max(int a, int b) {\n        return a > b ? a : b;\n    }\n}\n",
+   "methods": [
+    {
+     "decl": "static int arith(int, int, int)",
+     "code": [
+      {
+       "offset": 0,
+       "op": "iload_0",
+       "args": ""
+      },
+      {
+       "offset": 1,
+       "op": "iload_1",
+       "args": ""
+      },
+      {
+       "offset": 2,
+       "op": "iadd",
+       "args": ""
+      },
+      {
+       "offset": 3,
+       "op": "iload_2",
+       "args": ""
+      },
+      {
+       "offset": 4,
+       "op": "imul",
+       "args": ""
+      },
+      {
+       "offset": 5,
+       "op": "ireturn",
+       "args": ""
+      }
+     ],
+     "lines": [
+      {
+       "line": 3,
+       "start": 0
+      }
+     ],
+     "exceptions": [],
+     "locals": [
+      {
+       "start": 0,
+       "length": 6,
+       "slot": 0,
+       "name": "a",
+       "sig": "I"
+      },
+      {
+       "start": 0,
+       "length": 6,
+       "slot": 1,
+       "name": "b",
+       "sig": "I"
+      },
+      {
+       "start": 0,
+       "length": 6,
+       "slot": 2,
+       "name": "c",
+       "sig": "I"
+      }
+     ]
+    },
+    {
+     "decl": "static int sum(int)",
+     "code": [
+      {
+       "offset": 0,
+       "op": "iconst_0",
+       "args": ""
+      },
+      {
+       "offset": 1,
+       "op": "istore_1",
+       "args": ""
+      },
+      {
+       "offset": 2,
+       "op": "iconst_1",
+       "args": ""
+      },
+      {
+       "offset": 3,
+       "op": "istore_2",
+       "args": ""
+      },
+      {
+       "offset": 4,
+       "op": "iload_2",
+       "args": ""
+      },
+      {
+       "offset": 5,
+       "op": "iload_0",
+       "args": ""
+      },
+      {
+       "offset": 6,
+       "op": "if_icmpgt",
+       "args": "19"
+      },
+      {
+       "offset": 9,
+       "op": "iload_1",
+       "args": ""
+      },
+      {
+       "offset": 10,
+       "op": "iload_2",
+       "args": ""
+      },
+      {
+       "offset": 11,
+       "op": "iadd",
+       "args": ""
+      },
+      {
+       "offset": 12,
+       "op": "istore_1",
+       "args": ""
+      },
+      {
+       "offset": 13,
+       "op": "iinc",
+       "args": "2, 1"
+      },
+      {
+       "offset": 16,
+       "op": "goto",
+       "args": "4"
+      },
+      {
+       "offset": 19,
+       "op": "iload_1",
+       "args": ""
+      },
+      {
+       "offset": 20,
+       "op": "ireturn",
+       "args": ""
+      }
+     ],
+     "lines": [
+      {
+       "line": 7,
+       "start": 0
+      },
+      {
+       "line": 8,
+       "start": 2
+      },
+      {
+       "line": 9,
+       "start": 9
+      },
+      {
+       "line": 8,
+       "start": 13
+      },
+      {
+       "line": 11,
+       "start": 19
+      }
+     ],
+     "exceptions": [],
+     "locals": [
+      {
+       "start": 4,
+       "length": 15,
+       "slot": 2,
+       "name": "i",
+       "sig": "I"
+      },
+      {
+       "start": 0,
+       "length": 21,
+       "slot": 0,
+       "name": "n",
+       "sig": "I"
+      },
+      {
+       "start": 2,
+       "length": 19,
+       "slot": 1,
+       "name": "s",
+       "sig": "I"
+      }
+     ]
+    },
+    {
+     "decl": "static int gcd(int, int)",
+     "code": [
+      {
+       "offset": 0,
+       "op": "iload_1",
+       "args": ""
+      },
+      {
+       "offset": 1,
+       "op": "ifeq",
+       "args": "15"
+      },
+      {
+       "offset": 4,
+       "op": "iload_1",
+       "args": ""
+      },
+      {
+       "offset": 5,
+       "op": "istore_2",
+       "args": ""
+      },
+      {
+       "offset": 6,
+       "op": "iload_0",
+       "args": ""
+      },
+      {
+       "offset": 7,
+       "op": "iload_1",
+       "args": ""
+      },
+      {
+       "offset": 8,
+       "op": "irem",
+       "args": ""
+      },
+      {
+       "offset": 9,
+       "op": "istore_1",
+       "args": ""
+      },
+      {
+       "offset": 10,
+       "op": "iload_2",
+       "args": ""
+      },
+      {
+       "offset": 11,
+       "op": "istore_0",
+       "args": ""
+      },
+      {
+       "offset": 12,
+       "op": "goto",
+       "args": "0"
+      },
+      {
+       "offset": 15,
+       "op": "iload_0",
+       "args": ""
+      },
+      {
+       "offset": 16,
+       "op": "ireturn",
+       "args": ""
+      }
+     ],
+     "lines": [
+      {
+       "line": 15,
+       "start": 0
+      },
+      {
+       "line": 16,
+       "start": 4
+      },
+      {
+       "line": 17,
+       "start": 6
+      },
+      {
+       "line": 18,
+       "start": 10
+      },
+      {
+       "line": 19,
+       "start": 12
+      },
+      {
+       "line": 20,
+       "start": 15
+      }
+     ],
+     "exceptions": [],
+     "locals": [
+      {
+       "start": 6,
+       "length": 6,
+       "slot": 2,
+       "name": "t",
+       "sig": "I"
+      },
+      {
+       "start": 0,
+       "length": 17,
+       "slot": 0,
+       "name": "a",
+       "sig": "I"
+      },
+      {
+       "start": 0,
+       "length": 17,
+       "slot": 1,
+       "name": "b",
+       "sig": "I"
+      }
+     ]
+    },
+    {
+     "decl": "static int fact(int)",
+     "code": [
+      {
+       "offset": 0,
+       "op": "iload_0",
+       "args": ""
+      },
+      {
+       "offset": 1,
+       "op": "iconst_1",
+       "args": ""
+      },
+      {
+       "offset": 2,
+       "op": "if_icmpgt",
+       "args": "7"
+      },
+      {
+       "offset": 5,
+       "op": "iconst_1",
+       "args": ""
+      },
+      {
+       "offset": 6,
+       "op": "ireturn",
+       "args": ""
+      },
+      {
+       "offset": 7,
+       "op": "iload_0",
+       "args": ""
+      },
+      {
+       "offset": 8,
+       "op": "iload_0",
+       "args": ""
+      },
+      {
+       "offset": 9,
+       "op": "iconst_1",
+       "args": ""
+      },
+      {
+       "offset": 10,
+       "op": "isub",
+       "args": ""
+      },
+      {
+       "offset": 11,
+       "op": "invokestatic",
+       "args": "#7",
+       "comment": "Method fact:(I)I"
+      },
+      {
+       "offset": 14,
+       "op": "imul",
+       "args": ""
+      },
+      {
+       "offset": 15,
+       "op": "ireturn",
+       "args": ""
+      }
+     ],
+     "lines": [
+      {
+       "line": 24,
+       "start": 0
+      },
+      {
+       "line": 25,
+       "start": 7
+      }
+     ],
+     "exceptions": [],
+     "locals": [
+      {
+       "start": 0,
+       "length": 16,
+       "slot": 0,
+       "name": "n",
+       "sig": "I"
+      }
+     ]
+    },
+    {
+     "decl": "static int max(int, int)",
+     "code": [
+      {
+       "offset": 0,
+       "op": "iload_0",
+       "args": ""
+      },
+      {
+       "offset": 1,
+       "op": "iload_1",
+       "args": ""
+      },
+      {
+       "offset": 2,
+       "op": "if_icmple",
+       "args": "9"
+      },
+      {
+       "offset": 5,
+       "op": "iload_0",
+       "args": ""
+      },
+      {
+       "offset": 6,
+       "op": "goto",
+       "args": "10"
+      },
+      {
+       "offset": 9,
+       "op": "iload_1",
+       "args": ""
+      },
+      {
+       "offset": 10,
+       "op": "ireturn",
+       "args": ""
+      }
+     ],
+     "lines": [
+      {
+       "line": 29,
+       "start": 0
+      }
+     ],
+     "exceptions": [],
+     "locals": [
+      {
+       "start": 0,
+       "length": 11,
+       "slot": 0,
+       "name": "a",
+       "sig": "I"
+      },
+      {
+       "start": 0,
+       "length": 11,
+       "slot": 1,
+       "name": "b",
+       "sig": "I"
+      }
+     ]
+    }
+   ],
+   "classFile": "yv66vgAAAEEAIwoAAgADBwAEDAAFAAYBABBqYXZhL2xhbmcvT2JqZWN0AQAGPGluaXQ+AQADKClWCgAIAAkHAAoMAAsADAEAA1NpbQEABGZhY3QBAAQoSSlJAQAEQ29kZQEAD0xpbmVOdW1iZXJUYWJsZQEAEkxvY2FsVmFyaWFibGVUYWJsZQEABHRoaXMBAAVMU2ltOwEABWFyaXRoAQAGKElJSSlJAQABYQEAAUkBAAFiAQABYwEAA3N1bQEAAWkBAAFuAQABcwEADVN0YWNrTWFwVGFibGUBAANnY2QBAAUoSUkpSQEAAXQBAANtYXgBAApTb3VyY2VGaWxlAQAIU2ltLmphdmEAIQAIAAIAAAAAAAYAAQAFAAYAAQANAAAALwABAAEAAAAFKrcAAbEAAAACAA4AAAAGAAEAAAABAA8AAAAMAAEAAAAFABAAEQAAAAgAEgATAAEADQAAAEQAAgADAAAABhobYBxorAAAAAIADgAAAAYAAQAAAAMADwAAACAAAwAAAAYAFAAVAAAAAAAGABYAFQABAAAABgAXABUAAgAIABgADAABAA0AAABzAAIAAwAAABUDPAQ9HBqjAA0bHGA8hAIBp//0G6wAAAADAA4AAAAWAAUAAAAHAAIACAAJAAkADQAIABMACwAPAAAAIAADAAQADwAZABUAAgAAABUAGgAVAAAAAgATABsAFQABABwAAAAKAAL9AAQBAfoADgAIAB0AHgABAA0AAABtAAIAAwAAABEbmQAOGz0aG3A8HDun//QarAAAAAMADgAAABoABgAAAA8ABAAQAAYAEQAKABIADAATAA8AFAAPAAAAIAADAAYABgAfABUAAgAAABEAFAAVAAAAAAARABYAFQABABwAAAAEAAIADgAIAAsADAABAA0AAABHAAMAAQAAABAaBKMABQSsGhoEZLgAB2isAAAAAwAOAAAACgACAAAAGAAHABkADwAAAAwAAQAAABAAGgAVAAAAHAAAAAMAAQcACAAgAB4AAQANAAAASgACAAIAAAALGhukAAcapwAEG6wAAAADAA4AAAAGAAEAAAAdAA8AAAAWAAIAAAALABQAFQAAAAAACwAWABUAAQAcAAAABQACCUABAAEAIQAAAAIAIg=="
+  },
+  "Switches": {
+   "source": "public class Switches {\n    static String dense(int day) {\n        switch (day) {\n            case 1: return \"Mon\";\n            case 2: return \"Tue\";\n            case 3: return \"Wed\";\n            case 4: return \"Thu\";\n            default: return \"?\";\n        }\n    }\n\n    static int sparse(int code) {\n        switch (code) {\n            case 200: return 0;\n            case 404: return 1;\n            case 5000: return 2;\n            default: return -1;\n        }\n    }\n}\n",
+   "methods": [
+    {
+     "decl": "static java.lang.String dense(int)",
+     "code": [
+      {
+       "offset": 0,
+       "op": "iload_0",
+       "args": ""
+      },
+      {
+       "offset": 1,
+       "op": "tableswitch",
+       "args": "",
+       "cases": [
+        {
+         "key": "1",
+         "target": 32
+        },
+        {
+         "key": "2",
+         "target": 35
+        },
+        {
+         "key": "3",
+         "target": 38
+        },
+        {
+         "key": "4",
+         "target": 41
+        },
+        {
+         "key": "default",
+         "target": 44
+        }
+       ]
+      },
+      {
+       "offset": 32,
+       "op": "ldc",
+       "args": "#7",
+       "comment": "String Mon"
+      },
+      {
+       "offset": 34,
+       "op": "areturn",
+       "args": ""
+      },
+      {
+       "offset": 35,
+       "op": "ldc",
+       "args": "#9",
+       "comment": "String Tue"
+      },
+      {
+       "offset": 37,
+       "op": "areturn",
+       "args": ""
+      },
+      {
+       "offset": 38,
+       "op": "ldc",
+       "args": "#11",
+       "comment": "String Wed"
+      },
+      {
+       "offset": 40,
+       "op": "areturn",
+       "args": ""
+      },
+      {
+       "offset": 41,
+       "op": "ldc",
+       "args": "#13",
+       "comment": "String Thu"
+      },
+      {
+       "offset": 43,
+       "op": "areturn",
+       "args": ""
+      },
+      {
+       "offset": 44,
+       "op": "ldc",
+       "args": "#15",
+       "comment": "String ?"
+      },
+      {
+       "offset": 46,
+       "op": "areturn",
+       "args": ""
+      }
+     ],
+     "lines": [
+      {
+       "line": 3,
+       "start": 0
+      },
+      {
+       "line": 4,
+       "start": 32
+      },
+      {
+       "line": 5,
+       "start": 35
+      },
+      {
+       "line": 6,
+       "start": 38
+      },
+      {
+       "line": 7,
+       "start": 41
+      },
+      {
+       "line": 8,
+       "start": 44
+      }
+     ],
+     "exceptions": [],
+     "locals": [
+      {
+       "start": 0,
+       "length": 47,
+       "slot": 0,
+       "name": "day",
+       "sig": "I"
+      }
+     ]
+    },
+    {
+     "decl": "static int sparse(int)",
+     "code": [
+      {
+       "offset": 0,
+       "op": "iload_0",
+       "args": ""
+      },
+      {
+       "offset": 1,
+       "op": "lookupswitch",
+       "args": "",
+       "cases": [
+        {
+         "key": "200",
+         "target": 36
+        },
+        {
+         "key": "404",
+         "target": 38
+        },
+        {
+         "key": "5000",
+         "target": 40
+        },
+        {
+         "key": "default",
+         "target": 42
+        }
+       ]
+      },
+      {
+       "offset": 36,
+       "op": "iconst_0",
+       "args": ""
+      },
+      {
+       "offset": 37,
+       "op": "ireturn",
+       "args": ""
+      },
+      {
+       "offset": 38,
+       "op": "iconst_1",
+       "args": ""
+      },
+      {
+       "offset": 39,
+       "op": "ireturn",
+       "args": ""
+      },
+      {
+       "offset": 40,
+       "op": "iconst_2",
+       "args": ""
+      },
+      {
+       "offset": 41,
+       "op": "ireturn",
+       "args": ""
+      },
+      {
+       "offset": 42,
+       "op": "iconst_m1",
+       "args": ""
+      },
+      {
+       "offset": 43,
+       "op": "ireturn",
+       "args": ""
+      }
+     ],
+     "lines": [
+      {
+       "line": 13,
+       "start": 0
+      },
+      {
+       "line": 14,
+       "start": 36
+      },
+      {
+       "line": 15,
+       "start": 38
+      },
+      {
+       "line": 16,
+       "start": 40
+      },
+      {
+       "line": 17,
+       "start": 42
+      }
+     ],
+     "exceptions": [],
+     "locals": [
+      {
+       "start": 0,
+       "length": 44,
+       "slot": 0,
+       "name": "code",
+       "sig": "I"
+      }
+     ]
+    }
+   ],
+   "classFile": "yv66vgAAAEEAIgoAAgADBwAEDAAFAAYBABBqYXZhL2xhbmcvT2JqZWN0AQAGPGluaXQ+AQADKClWCAAIAQADTW9uCAAKAQADVHVlCAAMAQADV2VkCAAOAQADVGh1CAAQAQABPwcAEgEACFN3aXRjaGVzAQAEQ29kZQEAD0xpbmVOdW1iZXJUYWJsZQEAEkxvY2FsVmFyaWFibGVUYWJsZQEABHRoaXMBAApMU3dpdGNoZXM7AQAFZGVuc2UBABUoSSlMamF2YS9sYW5nL1N0cmluZzsBAANkYXkBAAFJAQANU3RhY2tNYXBUYWJsZQEABnNwYXJzZQEABChJKUkBAARjb2RlAQAKU291cmNlRmlsZQEADVN3aXRjaGVzLmphdmEAIQARAAIAAAAAAAMAAQAFAAYAAQATAAAALwABAAEAAAAFKrcAAbEAAAACABQAAAAGAAEAAAABABUAAAAMAAEAAAAFABYAFwAAAAgAGAAZAAEAEwAAAHoAAQABAAAALxqqAAAAAAArAAAAAQAAAAQAAAAfAAAAIgAAACUAAAAoEgewEgmwEguwEg2wEg+wAAAAAwAUAAAAGgAGAAAAAwAgAAQAIwAFACYABgApAAcALAAIABUAAAAMAAEAAAAvABoAGwAAABwAAAAHAAUgAgICAgAIAB0AHgABABMAAAByAAEAAQAAACwaqwAAAAAAKQAAAAMAAADIAAAAIwAAAZQAAAAlAAATiAAAACcDrASsBawCrAAAAAMAFAAAABYABQAAAA0AJAAOACYADwAoABAAKgARABUAAAAMAAEAAAAsAB8AGwAAABwAAAAGAAQkAQEBAAEAIAAAAAIAIQ=="
+  },
+  "Wide": {
+   "source": "public class Wide {\n    static double average(long a, long b, int count) {\n        long total = a + b;\n        return (double) total / count;\n    }\n}\n",
+   "methods": [
+    {
+     "decl": "static double average(long, long, int)",
+     "code": [
+      {
+       "offset": 0,
+       "op": "lload_0",
+       "args": ""
+      },
+      {
+       "offset": 1,
+       "op": "lload_2",
+       "args": ""
+      },
+      {
+       "offset": 2,
+       "op": "ladd",
+       "args": ""
+      },
+      {
+       "offset": 3,
+       "op": "lstore",
+       "args": "5"
+      },
+      {
+       "offset": 5,
+       "op": "lload",
+       "args": "5"
+      },
+      {
+       "offset": 7,
+       "op": "l2d",
+       "args": ""
+      },
+      {
+       "offset": 8,
+       "op": "iload",
+       "args": "4"
+      },
+      {
+       "offset": 10,
+       "op": "i2d",
+       "args": ""
+      },
+      {
+       "offset": 11,
+       "op": "ddiv",
+       "args": ""
+      },
+      {
+       "offset": 12,
+       "op": "dreturn",
+       "args": ""
+      }
+     ],
+     "lines": [
+      {
+       "line": 3,
+       "start": 0
+      },
+      {
+       "line": 4,
+       "start": 5
+      }
+     ],
+     "exceptions": [],
+     "locals": [
+      {
+       "start": 0,
+       "length": 13,
+       "slot": 0,
+       "name": "a",
+       "sig": "J"
+      },
+      {
+       "start": 0,
+       "length": 13,
+       "slot": 2,
+       "name": "b",
+       "sig": "J"
+      },
+      {
+       "start": 0,
+       "length": 13,
+       "slot": 4,
+       "name": "count",
+       "sig": "I"
+      },
+      {
+       "start": 5,
+       "length": 8,
+       "slot": 5,
+       "name": "total",
+       "sig": "J"
+      }
+     ]
+    }
+   ],
+   "classFile": "yv66vgAAAEEAGAoAAgADBwAEDAAFAAYBABBqYXZhL2xhbmcvT2JqZWN0AQAGPGluaXQ+AQADKClWBwAIAQAEV2lkZQEABENvZGUBAA9MaW5lTnVtYmVyVGFibGUBABJMb2NhbFZhcmlhYmxlVGFibGUBAAR0aGlzAQAGTFdpZGU7AQAHYXZlcmFnZQEABihKSkkpRAEAAWEBAAFKAQABYgEABWNvdW50AQABSQEABXRvdGFsAQAKU291cmNlRmlsZQEACVdpZGUuamF2YQAhAAcAAgAAAAAAAgABAAUABgABAAkAAAAvAAEAAQAAAAUqtwABsQAAAAIACgAAAAYAAQAAAAEACwAAAAwAAQAAAAUADAANAAAACAAOAA8AAQAJAAAAWQAEAAcAAAANHiBhNwUWBYoVBIdvrwAAAAIACgAAAAoAAgAAAAMABQAEAAsAAAAqAAQAAAANABAAEQAAAAAADQASABEAAgAAAA0AEwAUAAQABQAIABUAEQAFAAEAFgAAAAIAFw=="
+  }
+ }
+}

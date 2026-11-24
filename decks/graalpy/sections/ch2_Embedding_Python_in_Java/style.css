@@ -1,0 +1,6 @@
+.col { display: flex; flex-direction: column; gap: 12px; }
+.terms { display: flex; flex-direction: column; gap: 6px; color: var(--text-2); font-size: 14px; }
+.terms b { display: inline-block; width: 70px; font-family: var(--mono); }
+.pomdeps .code { overflow: auto; }
+.col { min-width: 0; }
+.col .code { overflow: auto; }

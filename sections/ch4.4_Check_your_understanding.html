@@ -1,0 +1,102 @@
+<!doctype html>
+<!--
+  A plain, self-contained HTML page — no React, no build step.
+  This is what a "downloaded single-file page" looks like: the framework only needs the
+  file name (ch4.4_<title>.html) to slot it into the presentation.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Check your understanding</title>
+<style>
+  :root { color-scheme: dark; --bg:#0c0e12; --panel:#12151b; --panel-2:#181c24; --border:#252b36; --border-strong:#343b48; --hover-border:#4a5366; --text:#e7e9ee; --text-2:#cdd2da; --muted:#9099a9; --accent:#f29e4c; --code:#f3c08d; --green:#5fd08f; --red:#ff6f6f; --bar:rgba(18,21,27,.92); }
+  /* light mode: the presentation shell sets data-theme on <html>; standalone, follow the OS */
+  :root[data-theme="light"] { color-scheme: light; --bg:#fbfbfa; --panel:#ffffff; --panel-2:#f3f4f6; --border:#e2e5ea; --border-strong:#cdd2da; --hover-border:#aeb5c1; --text:#16181d; --text-2:#2f3540; --muted:#535b69; --accent:#c25e0a; --code:#b4540a; --green:#17803d; --red:#cf2e2e; --bar:rgba(255,255,255,.92); }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 44px 48px 64px; }
+  .eyebrow { color: var(--accent); font: 600 12px ui-monospace, Menlo, monospace; letter-spacing: .08em; text-transform: uppercase; }
+  h1 { margin: 8px 0 6px; font-size: 38px; letter-spacing: -.025em; }
+  .lead { color: var(--muted); font-size: 17px; margin: 0 0 26px; }
+  .q { padding: 18px 20px; margin-bottom: 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--panel); }
+  .q h2 { margin: 0 0 12px; font-size: 16px; font-weight: 600; }
+  .q h2 span { color: var(--accent); font-family: ui-monospace, Menlo, monospace; margin-right: 8px; }
+  code { font-family: ui-monospace, Menlo, monospace; color: var(--code); }
+  .opts { display: grid; gap: 8px; }
+  button.opt { text-align: left; padding: 10px 14px; border: 1px solid var(--border-strong); border-radius: 8px; background: var(--panel-2); color: var(--text); font: inherit; cursor: pointer; }
+  button.opt:hover:not(:disabled) { border-color: var(--hover-border); }
+  button.opt:disabled { cursor: default; }
+  button.opt.right { border-color: var(--green); background: color-mix(in srgb, var(--green) 12%, transparent); }
+  button.opt.wrong { border-color: var(--red); background: color-mix(in srgb, var(--red) 10%, transparent); }
+  .why { display: none; margin-top: 10px; color: var(--text-2); font-size: 14px; }
+  .q.answered .why { display: block; }
+  .score { position: sticky; bottom: 16px; display: flex; justify-content: space-between; align-items: center; padding: 12px 18px; border: 1px solid var(--border); border-radius: 10px; background: var(--bar); backdrop-filter: blur(6px); }
+  .score b { color: var(--accent); font-family: ui-monospace, Menlo, monospace; font-size: 18px; }
+  .score button { padding: 6px 12px; border: 1px solid var(--border-strong); border-radius: 7px; background: var(--panel-2); color: var(--text); font: inherit; cursor: pointer; }
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">Section 4.4 · plain HTML page</div>
+  <h1>Check your understanding</h1>
+  <p class="lead">Six questions on everything so far. Click an answer to see why.</p>
+  <div id="quiz"></div>
+  <div class="score"><span>Score: <b id="score">0 / 0</b></span><button id="reset">Start over</button></div>
+</main>
+<script>
+  var QUESTIONS = [
+    { q: 'What does <code>iadd</code> take as operands?', options: ['Two local-variable indices encoded in the instruction', 'The two values on top of the operand stack', 'Two registers named after the opcode', 'A constant-pool reference'], answer: 1,
+      why: 'Stack instructions name no operands: <code>iadd</code> pops two ints and pushes their sum. That is why it fits in a single byte.' },
+    { q: 'Why does <code>new</code> almost always appear next to <code>dup</code>?', options: ['dup allocates the memory', 'The constructor call consumes one reference; the dup keeps another for the program to use', 'It is required for garbage collection', 'To align the bytecode to 2 bytes'], answer: 1,
+      why: '<code>invokespecial &lt;init&gt;</code> pops the reference it initialises. Without the <code>dup</code> the new object would be lost once constructed.' },
+    { q: 'Compared with a stack VM, a register VM running the same program typically executes…', options: ['more, smaller instructions', 'fewer, larger instructions', 'exactly the same instructions', 'no branches'], answer: 1,
+      why: 'Naming operands explicitly removes the loads and stores, so fewer instructions are dispatched — but each one is wider. (See 3.2.)' },
+    { q: 'javac compiles a <code>switch</code> over the cases 1, 2, 3, 4 into…', options: ['lookupswitch', 'a chain of if_icmpeq', 'tableswitch', 'invokedynamic'], answer: 2,
+      why: 'Dense case values become a <code>tableswitch</code>: an O(1) jump table indexed by value − low. Sparse values (200, 404, 5000) use <code>lookupswitch</code>.' },
+    { q: 'How does Java 9+ compile <code>"Hello, " + name</code>?', options: ['new StringBuilder().append(...)', 'String.concat', 'invokedynamic makeConcatWithConstants', 'ldc of a pre-joined string'], answer: 2,
+      why: 'Since JEP 280 string concatenation is an <code>invokedynamic</code> call site, so the JVM can pick the best strategy at run time without recompiling your code.' },
+    { q: 'Which part of the JVM guarantees that bytecode cannot pop an empty stack or use an int as a reference?', options: ['The JIT compiler', 'The garbage collector', 'The bytecode verifier', 'The class-file magic number 0xCAFEBABE'], answer: 2,
+      why: 'Verification runs during linking, before any code executes. The StackMapTable attribute lets it check each method in a single pass.' }
+  ];
+
+  var answered = {}, correct = 0;
+  var root = document.getElementById('quiz');
+
+  function render() {
+    root.innerHTML = '';
+    answered = {}; correct = 0; updateScore();
+    QUESTIONS.forEach(function (item, qi) {
+      var el = document.createElement('section');
+      el.className = 'q';
+      el.innerHTML = '<h2><span>Q' + (qi + 1) + '</span>' + item.q + '</h2><div class="opts"></div><div class="why">' + item.why + '</div>';
+      var opts = el.querySelector('.opts');
+      item.options.forEach(function (text, oi) {
+        var b = document.createElement('button');
+        b.className = 'opt';
+        b.innerHTML = text;
+        b.onclick = function () {
+          if (answered[qi] !== undefined) return;
+          answered[qi] = oi;
+          if (oi === item.answer) correct++;
+          el.classList.add('answered');
+          Array.prototype.forEach.call(opts.children, function (o, k) {
+            o.disabled = true;
+            if (k === item.answer) o.classList.add('right');
+            else if (k === oi) o.classList.add('wrong');
+          });
+          updateScore();
+        };
+        opts.appendChild(b);
+      });
+      root.appendChild(el);
+    });
+  }
+  function updateScore() {
+    document.getElementById('score').textContent = correct + ' / ' + Object.keys(answered).length;
+  }
+  document.getElementById('reset').onclick = render;
+  render();
+</script>
+</body>
+</html>

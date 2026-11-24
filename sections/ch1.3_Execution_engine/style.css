@@ -1,0 +1,92 @@
+.ee-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 16px;
+}
+.ee-chart {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.ee-grid-line {
+  stroke: var(--border);
+  stroke-dasharray: 2 4;
+}
+.ee-threshold {
+  stroke: var(--blue);
+  stroke-dasharray: 4 4;
+  opacity: 0.6;
+}
+.ee-axis {
+  fill: var(--faint);
+  font: 11px var(--mono);
+}
+.ee-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+.ee-side {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.tier-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 16px;
+  border: 2px solid;
+  border-radius: 10px;
+  background: var(--panel);
+  font: 700 17px var(--mono);
+  transition: color 0.3s, border-color 0.3s;
+}
+.tier-pending {
+  color: var(--blue);
+  font: 500 12px var(--mono);
+  animation: pulse 1s ease infinite alternate;
+}
+@keyframes pulse {
+  to {
+    opacity: 0.4;
+  }
+}
+.ee-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.ee-log {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+.ee-log-row {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 10px;
+  padding: 6px 10px;
+  border-left: 3px solid var(--tone);
+  background: color-mix(in srgb, var(--tone) 7%, transparent);
+  border-radius: 0 6px 6px 0;
+  font-size: 14px;
+  animation: fade 0.3s ease;
+}
+.ee-log-row .mono {
+  color: var(--tone);
+  font-size: 12px;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+@media (max-width: 960px) {
+  .ee-grid {
+    grid-template-columns: 1fr;
+  }
+}

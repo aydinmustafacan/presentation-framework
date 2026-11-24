@@ -1,0 +1,114 @@
+.hl {
+  color: var(--accent);
+}
+.pipeline {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+  margin-top: 8px;
+}
+.pipe-cell {
+  display: flex;
+  align-items: center;
+}
+.pipe-arrow {
+  flex: none;
+  width: 18px;
+  height: 2px;
+  background: var(--border-strong);
+  position: relative;
+}
+.pipe-arrow::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: -4px;
+  border: 5px solid transparent;
+  border-left-color: var(--border-strong);
+  border-right: 0;
+}
+.pipe-stage {
+  flex: 1;
+  min-width: 0;
+  height: 64px;
+  padding: 0 8px;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--text);
+  font: 600 13.5px var(--ui);
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s, background 0.15s;
+}
+.pipe-stage.k-file {
+  font-family: var(--mono);
+  font-size: 12.5px;
+}
+.pipe-stage.k-jvm {
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.pipe-stage.k-hw {
+  border-style: dashed;
+}
+.pipe-stage:hover,
+.pipe-stage.is-on {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--panel));
+}
+.pipe-bracket {
+  display: grid;
+  grid-template-columns: 3fr 4fr;
+  gap: 12px;
+  color: var(--faint);
+  font: 11px var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.pipe-bracket span {
+  padding-top: 6px;
+  border-top: 2px solid var(--border);
+  text-align: center;
+}
+.pipe-bracket span:last-child {
+  border-top-color: color-mix(in srgb, var(--accent) 50%, transparent);
+  color: var(--accent);
+}
+.pipe-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+  min-height: 170px;
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  animation: fade 0.25s ease;
+}
+.pipe-detail h3 {
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+.pipe-detail p {
+  color: var(--text-2);
+  font-size: 16px;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+@media (max-width: 860px) {
+  .pipeline {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .pipe-arrow {
+    display: none;
+  }
+  .pipe-detail {
+    grid-template-columns: 1fr;
+  }
+}

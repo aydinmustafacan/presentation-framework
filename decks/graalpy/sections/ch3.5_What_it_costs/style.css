@@ -1,0 +1,14 @@
+.slider { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; color: var(--text-2); font-size: 14px; }
+.slider input { accent-color: var(--accent); max-width: 520px; }
+.race { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+.race-row { display: grid; grid-template-columns: 240px 1fr 70px; align-items: center; gap: 12px; }
+.race-row.is-best .race-label b { color: color-mix(in srgb, var(--c), var(--ink-mix) var(--ink-amt)); }
+.race-track { display: flex; height: 20px; border-radius: 4px; background: var(--stripe); overflow: hidden; }
+.race-start { background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--c) 40%, transparent) 0 5px, transparent 5px 9px); transition: width 0.25s; }
+.race-work { background: color-mix(in srgb, var(--c) 70%, transparent); transition: width 0.25s; }
+.race-t { text-align: right; font-weight: 600; }
+.cmp { width: 100%; border-collapse: collapse; font-size: 14px; }
+.cmp th, .cmp td { padding: 8px 12px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+.cmp th { color: var(--muted); font: 600 12px var(--mono); text-transform: uppercase; letter-spacing: 0.06em; }
+.cmp td:first-child { color: var(--muted); width: 230px; }
+.cmp td:last-child { color: var(--text); }

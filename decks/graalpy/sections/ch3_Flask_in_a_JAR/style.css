@@ -1,0 +1,18 @@
+.col { display: flex; flex-direction: column; gap: 14px; }
+.toc { margin: 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; color: var(--text-2); }
+.toc b { display: inline-block; width: 32px; color: var(--accent); font-family: var(--mono); }
+.term {
+  min-height: 360px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--code-bg);
+  font: 13px/1.55 var(--mono);
+}
+.term-block { margin-bottom: 12px; opacity: 0.35; transition: opacity 0.3s; }
+.term-block.is-on { opacity: 1; }
+.term-cmd span { color: var(--green); margin-right: 4px; }
+.term-out { margin: 4px 0 0; color: var(--muted); white-space: pre-wrap; animation: t-in 0.3s ease; font: inherit; }
+@keyframes t-in { from { opacity: 0; } }
+.cursor { display: inline-block; width: 8px; height: 15px; background: var(--text); animation: blink 1s steps(1) infinite; vertical-align: -2px; }
+@keyframes blink { 50% { opacity: 0; } }

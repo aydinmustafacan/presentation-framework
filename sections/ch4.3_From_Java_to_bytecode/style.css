@@ -1,0 +1,44 @@
+.jb-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 14px;
+  align-items: start;
+}
+.jb-bytecode {
+  max-height: 520px;
+}
+.jb-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-items: start;
+}
+.jb-points {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.jb-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.jb-table th,
+.jb-table td {
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.jb-table th {
+  color: var(--faint);
+  font: 600 10.5px var(--mono);
+  text-transform: uppercase;
+}
+@media (max-width: 1000px) {
+  .jb-grid,
+  .jb-bottom {
+    grid-template-columns: 1fr;
+  }
+}

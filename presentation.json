@@ -1,0 +1,7 @@
+{
+  "title": "Inside the Java Virtual Machine",
+  "subtitle": "A stack machine, its bytecode, and why it is built that way",
+  "chapters": {
+    "4": "Java bytecode deep dive"
+  }
+}

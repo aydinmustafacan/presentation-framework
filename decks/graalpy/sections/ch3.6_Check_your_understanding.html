@@ -1,0 +1,102 @@
+<!doctype html>
+<!-- Plain, self-contained HTML quiz (no build step). Theme-aware: the shell sets data-theme on <html>. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Check your understanding</title>
+<style>
+  :root { color-scheme: dark; --bg:#0c0e12; --panel:#12151b; --panel-2:#181c24; --border:#252b36; --border-strong:#343b48; --hover-border:#4a5366; --text:#e7e9ee; --text-2:#cdd2da; --muted:#9099a9; --accent:#f29e4c; --code:#f3c08d; --green:#5fd08f; --red:#ff6f6f; --bar:rgba(18,21,27,.92); }
+  /* light mode: the presentation shell sets data-theme on <html>; standalone, follow the OS */
+  :root[data-theme="light"] { color-scheme: light; --bg:#fbfbfa; --panel:#ffffff; --panel-2:#f3f4f6; --border:#e2e5ea; --border-strong:#cdd2da; --hover-border:#aeb5c1; --text:#16181d; --text-2:#2f3540; --muted:#535b69; --accent:#c25e0a; --code:#b4540a; --green:#17803d; --red:#cf2e2e; --bar:rgba(255,255,255,.92); }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 44px 48px 64px; }
+  .eyebrow { color: var(--accent); font: 600 12px ui-monospace, Menlo, monospace; letter-spacing: .08em; text-transform: uppercase; }
+  h1 { margin: 8px 0 6px; font-size: 38px; letter-spacing: -.025em; }
+  .lead { color: var(--muted); font-size: 17px; margin: 0 0 26px; }
+  .q { padding: 18px 20px; margin-bottom: 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--panel); }
+  .q h2 { margin: 0 0 12px; font-size: 16px; font-weight: 600; }
+  .q h2 span { color: var(--accent); font-family: ui-monospace, Menlo, monospace; margin-right: 8px; }
+  code { font-family: ui-monospace, Menlo, monospace; color: var(--code); }
+  .opts { display: grid; gap: 8px; }
+  button.opt { text-align: left; padding: 10px 14px; border: 1px solid var(--border-strong); border-radius: 8px; background: var(--panel-2); color: var(--text); font: inherit; cursor: pointer; }
+  button.opt:hover:not(:disabled) { border-color: var(--hover-border); }
+  button.opt:disabled { cursor: default; }
+  button.opt.right { border-color: var(--green); background: color-mix(in srgb, var(--green) 12%, transparent); }
+  button.opt.wrong { border-color: var(--red); background: color-mix(in srgb, var(--red) 10%, transparent); }
+  .why { display: none; margin-top: 10px; color: var(--text-2); font-size: 14px; }
+  .q.answered .why { display: block; }
+  .score { position: sticky; bottom: 16px; display: flex; justify-content: space-between; align-items: center; padding: 12px 18px; border: 1px solid var(--border); border-radius: 10px; background: var(--bar); backdrop-filter: blur(6px); }
+  .score b { color: var(--accent); font-family: ui-monospace, Menlo, monospace; font-size: 18px; }
+  .score button { padding: 6px 12px; border: 1px solid var(--border-strong); border-radius: 7px; background: var(--panel-2); color: var(--text); font: inherit; cursor: pointer; }
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">Section 3.6 · plain HTML page</div>
+  <h1>Check your understanding</h1>
+  <p class="lead">Eight questions on GraalPy and the Flask JAR. Click an answer to see why.</p>
+  <div id="quiz"></div>
+  <div class="score"><span>Score: <b id="score">0 / 0</b></span><button id="reset">Start over</button></div>
+</main>
+<script>
+  var QUESTIONS = [
+    { q: 'The same JAR serves a CPU-heavy request in ~20 ms on a GraalVM JDK but ~1.8 s on a stock OpenJDK. Why?', options: ['OpenJDK has a slower garbage collector', 'The Graal compiler is not in the JAR; on OpenJDK Truffle falls back to interpreting only', 'GraalVM caches HTTP responses', 'OpenJDK cannot load the virtual filesystem'], answer: 1,
+      why: 'The JAR carries Truffle and GraalPy, but the JIT that compiles them comes from the JDK. Truffle prints a “fallback runtime” warning on OpenJDK. (See 1.1 and 1.4.)' },
+    { q: 'A <code>+</code> node was compiled with only an <code>int + int</code> specialization. Then a float arrives. What happens?', options: ['A TypeError', 'The float is converted to an int', 'The compiled code deoptimizes back to the interpreter, the node activates a float case, and it is compiled again later', 'GraalPy calls CPython for that operation'], answer: 2,
+      why: 'Compiled code only covers the cases seen so far; anything else is a deopt exit. The node rewrites itself and becomes hot again. (1.2)' },
+    { q: 'The very first /primes request took 1 s, yet the trace shows its loop being compiled during that request. What made that possible?', options: ['On-stack replacement (OSR)', 'Ahead-of-time compilation', 'The GIL', 'pip pre-compiling the code'], answer: 0,
+      why: 'OSR compiles a hot loop and switches into it while the function is still running, so a long first call does not stay interpreted. (1.3)' },
+    { q: 'Java calls a Python function with a <code>java.util.HashMap</code>. What does Python receive?', options: ['A copied Python dict', 'A JSON string', 'A ForeignDict: a proxy around the Java map', 'Nothing; maps are not allowed'], answer: 2,
+      why: 'Values are not copied across the boundary. Python gets a dict-like proxy, and with host access it can call the map’s Java methods like keySet(). (2.1)' },
+    { q: 'Inside the running JAR, where does <code>import flask</code> load Flask from?', options: ['The host’s site-packages', '/graalpy_vfs/venv/lib/python3.12/site-packages: JAR resources seen through the virtual filesystem', 'It is compiled into Java classes at build time', 'Downloaded from PyPI at startup'], answer: 1,
+      why: 'The Maven plugin pip-installed Flask into a venv inside the JAR’s resources; the VFS makes it look like a normal directory. (2.2, 3.1)' },
+    { q: 'MarkupSafe ships C speedups, yet the Flask JAR works without any native build for it. How?', options: ['GraalPy translates C to Java', 'MarkupSafe falls back to its pure-Python implementation', 'The JAR contains CPython', 'Jinja2 does not use MarkupSafe'], answer: 1,
+      why: 'The compiled module is missing, so its import fails and MarkupSafe uses markupsafe._native. Packages that need native code have no such fallback. (2.3)' },
+    { q: 'Of the ~84 MB JAR, roughly how much is the Flask app plus its pip packages (pip included)?', options: ['About 80 MB', 'About half', 'About 6 MB', 'Under 1 kB'], answer: 2,
+      why: 'App, venv and pip are about 6 MB compressed, two-thirds of that pip. The rest is GraalPy, the stdlib, Truffle and native libraries: a fixed cost. (3.2)' },
+    { q: 'How do you let the Java server handle requests to the Python app in parallel?', options: ['Start Python threads inside the context', 'Remove synchronized from serve()', 'Use several Contexts (a pool), ideally sharing one Engine', 'It is impossible with GraalPy'], answer: 2,
+      why: 'One context runs Python on one thread at a time (there is a GIL). Several contexts run truly in parallel and can share compiled code through a common Engine. (3.4)' }
+  ];
+
+  var answered = {}, correct = 0;
+  var root = document.getElementById('quiz');
+
+  function render() {
+    root.innerHTML = '';
+    answered = {}; correct = 0; updateScore();
+    QUESTIONS.forEach(function (item, qi) {
+      var el = document.createElement('section');
+      el.className = 'q';
+      el.innerHTML = '<h2><span>Q' + (qi + 1) + '</span>' + item.q + '</h2><div class="opts"></div><div class="why">' + item.why + '</div>';
+      var opts = el.querySelector('.opts');
+      item.options.forEach(function (text, oi) {
+        var b = document.createElement('button');
+        b.className = 'opt';
+        b.innerHTML = text;
+        b.onclick = function () {
+          if (answered[qi] !== undefined) return;
+          answered[qi] = oi;
+          if (oi === item.answer) correct++;
+          el.classList.add('answered');
+          Array.prototype.forEach.call(opts.children, function (o, k) {
+            o.disabled = true;
+            if (k === item.answer) o.classList.add('right');
+            else if (k === oi) o.classList.add('wrong');
+          });
+          updateScore();
+        };
+        opts.appendChild(b);
+      });
+      root.appendChild(el);
+    });
+  }
+  function updateScore() {
+    document.getElementById('score').textContent = correct + ' / ' + Object.keys(answered).length;
+  }
+  document.getElementById('reset').onclick = render;
+  render();
+</script>
+</body>
+</html>

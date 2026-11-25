@@ -1,0 +1,12 @@
+sum=45
+tuple: hasArrayElements=true size=7
+0: 'ForeignDict'  buffer=false string=true array=false
+1: 'ForeignList'  buffer=false string=true array=false
+2: 'str'  buffer=false string=true array=false
+3: ['Host']  buffer=false string=false array=true
+4: b'hi'  buffer=true string=false array=true
+5: 2  buffer=false string=false array=false
+6: 'JAVA STRING'  buffer=false string=true array=false
+dict: hasHashEntries=true hasMembers=true
+import java without host access: ok
+java.type denied: NotImplementedError: host lookup is not allowed

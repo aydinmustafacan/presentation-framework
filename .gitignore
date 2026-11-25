@@ -7,3 +7,5 @@ target/
 build/
 .gradle/
 .kotlin/
+# slides import these recorded outputs (overrides a global *.out ignore)
+!decks/graalpy/example/flask-jar/snippets/*.out

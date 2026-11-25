@@ -1,0 +1,5 @@
+meta_path: ['PipImportHook', 'BuiltinImporter', 'FrozenImporter', 'PathFinder', 'JavaImportFinder']
+sys spec origin: built-in
+write into VFS: PermissionError [Errno 1] Operation not permitted: '/graalpy_vfs/src/new.txt'
+markupsafe._speedups: ImportError
+listdir /graalpy_vfs: ['fileslist.txt', 'src', 'venv']

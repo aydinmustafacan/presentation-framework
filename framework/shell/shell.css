@@ -287,9 +287,12 @@ kbd {
   .shell.with-sidebar .sidebar {
     position: fixed;
     z-index: 10;
-    inset: 0 auto 0 0;
+    inset: var(--topbar-h) auto 0 0;
     width: var(--sidebar-w);
     box-shadow: 0 0 40px var(--shadow);
+  }
+  .stage {
+    grid-column: 2;
   }
   .crumb-chapter {
     display: none;

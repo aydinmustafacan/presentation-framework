@@ -1,0 +1,15 @@
+.vfs-map { min-width: 44rem; }
+.vfs-map code { font: .88rem var(--mono); overflow-wrap: anywhere; }
+.vfs-map td:nth-child(3) code { color: var(--guest); }
+.vfs-arrow { color: var(--muted); text-align: center; }
+
+.vfs-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(.8rem, 2vw, 1.4rem);
+}
+.vfs-facts code { font-family: var(--mono); font-size: .9em; color: var(--text); overflow-wrap: anywhere; }
+
+@media (max-width: 860px) {
+  .vfs-facts { grid-template-columns: minmax(0, 1fr); }
+}

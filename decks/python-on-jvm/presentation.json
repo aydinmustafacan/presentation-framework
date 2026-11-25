@@ -1,0 +1,5 @@
+{
+  "title": "Python on the JVM",
+  "subtitle": "A Flask service in a Java deployment",
+  "chapters": { "2": "GraalPy", "5": "Conclusion" }
+}

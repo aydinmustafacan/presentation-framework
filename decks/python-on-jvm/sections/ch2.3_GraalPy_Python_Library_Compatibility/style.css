@@ -1,0 +1,7 @@
+.col { display: flex; flex-direction: column; gap: 12px; }
+.pk-list { display: flex; flex-direction: column; gap: 6px; }
+.pk { display: grid; grid-template-columns: 150px 1fr 150px; align-items: center; gap: 10px; }
+.pk-name { font: 600 13px var(--mono); }
+.pk .tag { justify-self: start; }
+.pip-note { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); }
+.ex { margin-top: 6px; }

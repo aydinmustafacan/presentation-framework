@@ -1,0 +1,162 @@
+{
+ "versions": {
+  "jython": "2.7.4",
+  "jep": "4.4.0",
+  "graalpy": "25.0.5",
+  "cpython": "3.13.0",
+  "jdk": "Corretto 25.0.1"
+ },
+ "machine": "Apple M1 Pro, macOS",
+ "primesN": 200000,
+ "threadN": 100000,
+ "runtimes": {
+  "jython": {
+   "runtime": "Jython",
+   "python": "2.7.4",
+   "runs": 3,
+   "fstring": "SyntaxError: (\"no viable alternative at input ''{x + 1}''\", ('<string>', 2, 5, \"y = f'{x + 1}'\\n\"))",
+   "numpy": "ImportError: No module named numpy",
+   "probeSeenByPython": [
+    "HashMap",
+    "array",
+    "unicode",
+    "['Host']",
+    "2",
+    "JAVA STRING"
+   ],
+   "probeReturnedToJava": "org.python.core.PyTuple",
+   "probeElement0InJava": "java.lang.String",
+   "primes": 17984,
+   "startupMs": 818.1,
+   "startupAll": [
+    818.1,
+    809.3,
+    871.4
+   ],
+   "primesMs": [
+    266.8,
+    201.2,
+    148.6,
+    151.2,
+    144.1,
+    140.9,
+    143.5,
+    143.1,
+    144.7,
+    143.9,
+    139.8,
+    142.8,
+    143.8,
+    140.6,
+    143.3
+   ],
+   "primesSteadyMs": 145.7,
+   "threads": 4,
+   "thread1Ms": 89.9,
+   "threadNMs": 167.9,
+   "threadNote": "one PythonInterpreter per thread; Jython has no GIL",
+   "isolated1Ms": null,
+   "isolatedNMs": null,
+   "jvm": null
+  },
+  "jep": {
+   "runtime": "JEP",
+   "python": "3.13.0",
+   "runs": 3,
+   "fstring": "ok",
+   "numpy": "ok 499500",
+   "probeSeenByPython": [
+    "HashMap",
+    "PyJArray",
+    "str",
+    "['Host']",
+    "2",
+    "JAVA STRING"
+   ],
+   "probeReturnedToJava": "java.util.Collections$UnmodifiableRandomAccessList",
+   "probeElement0InJava": "java.lang.String",
+   "primes": 17984,
+   "startupMs": 60.4,
+   "startupAll": [
+    46.6,
+    60.4,
+    64.7
+   ],
+   "primesMs": [
+    422.1,
+    421.4,
+    421,
+    420.6,
+    424,
+    420.7,
+    421.3,
+    420.6,
+    420.6,
+    421.8,
+    420.9,
+    421.4,
+    435.6,
+    435.3,
+    422.1
+   ],
+   "primesSteadyMs": 429.8,
+   "threads": 4,
+   "thread1Ms": 160.4,
+   "threadNMs": 641.1,
+   "threadNote": "one SharedInterpreter per thread; they share CPython's GIL",
+   "isolated1Ms": 164.1,
+   "isolatedNMs": 176.5,
+   "jvm": null
+  },
+  "graalpy": {
+   "runtime": "GraalPy",
+   "python": "3.12.8",
+   "runs": 3,
+   "fstring": "ok",
+   "numpy": "PolyglotException: ModuleNotFoundError: No module named 'numpy'",
+   "probeSeenByPython": [
+    "ForeignDict",
+    "ForeignList",
+    "str",
+    "['Host']",
+    "2",
+    "JAVA STRING"
+   ],
+   "probeReturnedToJava": "org.graalvm.polyglot.Value (hasArrayElements=true)",
+   "probeElement0InJava": "org.graalvm.polyglot.Value",
+   "primes": 17984,
+   "startupMs": 2072.7,
+   "startupAll": [
+    1878.3,
+    2072.7,
+    2230.4
+   ],
+   "primesMs": [
+    1351.4,
+    1372.6,
+    1396.4,
+    1023.5,
+    1372.5,
+    1372.2,
+    1373.5,
+    1375.4,
+    1396.3,
+    1398,
+    1419.2,
+    1403,
+    1403.3,
+    1398.6,
+    1401.5
+   ],
+   "primesSteadyMs": 1399.6,
+   "threads": 4,
+   "thread1Ms": 400.8,
+   "threadNMs": 783.2,
+   "threadNote": "one Context per thread, sharing one Engine; each Context has its own GIL",
+   "isolated1Ms": null,
+   "isolatedNMs": null,
+   "jvm": "OpenJDK 64-Bit Server VM 25.0.1"
+  }
+ },
+ "isolatedNumpy": "== numpy only in the isolated sub-interpreter\nexit=134\n== numpy first imported by a SharedInterpreter\nshared: numpy ok\nisolated sub: <class 'ImportError'>: Error importing numpy: you should not try to import numpy from\n        its source directory; please exit the numpy source tree, and relaunch\n        your python interpreter from there.\nexit=0\n"
+}

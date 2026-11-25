@@ -109,9 +109,20 @@ export default function App() {
 
   useEffect(() => {
     const keydown = (e: KeyboardEvent) => {
-      if (e.altKey || e.ctrlKey || e.metaKey) return;
+      // Chords: Ctrl+A / Ctrl+Shift+A move between sections, Cmd/Ctrl+1 toggles the sidebar.
       const t = e.target as HTMLElement | null;
-      if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+      const editing = !!t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName));
+      // Ctrl+A is left alone in text fields (select all / line start).
+      if (e.code === 'KeyA' && e.ctrlKey && !e.metaKey && !e.altKey && !editing) {
+        e.preventDefault();
+        return onKey(e.shiftKey ? 'ArrowLeft' : 'ArrowRight');
+      }
+      if (e.code === 'Digit1' && (e.metaKey || e.ctrlKey) && !e.shiftKey && !e.altKey) {
+        e.preventDefault();
+        return onKey('s');
+      }
+      if (e.altKey || e.ctrlKey || e.metaKey) return;
+      if (editing) return;
       if (e.key === ' ' || e.key === '.' || e.key === ',') {
         // page-widget keys pressed while the shell has focus: hand them to the page
         const win = frameRef.current?.contentWindow;
@@ -202,13 +213,13 @@ export default function App() {
           })}
         </nav>
         <footer className="sidebar-foot">
-          <kbd>←</kbd><kbd>→</kbd> move · <kbd>S</kbd> sidebar · <kbd>T</kbd> theme · <kbd>F</kbd> full
+          <kbd>←</kbd><kbd>→</kbd> / <kbd>⌃A</kbd> move · <kbd>S</kbd> / <kbd>⌘1</kbd> sidebar · <kbd>T</kbd> theme · <kbd>F</kbd> full
         </footer>
       </aside>
 
       <main className="stage">
         <div className="topbar">
-          <button className="icon-btn" onClick={() => setSidebar((v) => !v)} title="Toggle sidebar (S)" aria-label="Toggle sidebar">
+          <button className="icon-btn" onClick={() => setSidebar((v) => !v)} title="Toggle sidebar (S or ⌘1)" aria-label="Toggle sidebar">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <rect x="3" y="4" width="18" height="16" rx="2" />
               <path d="M9 4v16" />

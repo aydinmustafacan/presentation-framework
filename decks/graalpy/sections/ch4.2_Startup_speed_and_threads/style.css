@@ -1,0 +1,15 @@
+.col { display: flex; flex-direction: column; gap: 12px; }
+.bars { display: flex; flex-direction: column; gap: 10px; }
+.bar-row { display: grid; grid-template-columns: 250px 1fr; align-items: center; gap: 12px; }
+.bar-label { color: color-mix(in srgb, var(--rt), var(--ink-mix) var(--ink-amt)); font: 600 13px var(--mono); }
+.bar-row.is-ref .g-hbar-fill { background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--c) 50%, transparent) 0 5px, transparent 5px 9px); border-right-style: dashed; }
+.bar-row.is-ref .bar-label { font-weight: 400; font-style: italic; }
+.sparks { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); }
+.spark { display: flex; flex-direction: column; gap: 2px; color: var(--muted); }
+.thr { display: flex; flex-direction: column; gap: 4px; }
+.thr-head { display: flex; align-items: baseline; gap: 8px; }
+.thr-head b { color: color-mix(in srgb, var(--rt), var(--ink-mix) var(--ink-amt)); }
+.par { font-size: 12.5px; font-weight: 600; }
+.par.good { color: var(--green); }
+.par.bad { color: var(--red); }
+.spark-h { flex-basis: 100%; }

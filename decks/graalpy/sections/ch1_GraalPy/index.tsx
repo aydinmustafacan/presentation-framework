@@ -54,8 +54,8 @@ export default function Cover() {
       <Measured>
         GET /primes/200000 on the example Flask app, median of the last 10 of 40 requests. Chapter 1 explains the {Math.round(ojdk / gvm)}× gap; chapter 3 builds the JAR.
       </Measured>
-      <Callout title="Three chapters">
-        <b>1</b> how GraalPy executes Python · <b>2</b> how Java code embeds it · <b>3</b> a real Flask app built into a runnable JAR: the build, the JAR's contents, a request's path through it, and what it costs.
+      <Callout title="Four chapters">
+        <b>1</b> how GraalPy executes Python · <b>2</b> how Java code embeds it · <b>3</b> a real Flask app built into a runnable JAR: the build, the JAR's contents, a request's path through it, and what it costs · <b>4</b> how it compares with Jython and JEP.
       </Callout>
     </Slide>
   );

@@ -1,0 +1,21 @@
+.jb-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 14px;
+  align-items: start;
+}
+.jb-bytecode {
+  max-height: 520px;
+}
+.jb-points {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+@media (max-width: 1000px) {
+  .jb-grid {
+    grid-template-columns: 1fr;
+  }
+}

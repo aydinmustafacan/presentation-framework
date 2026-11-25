@@ -36,7 +36,7 @@
 <main>
   <div class="eyebrow">Section 3.6 · plain HTML page</div>
   <h1>Check your understanding</h1>
-  <p class="lead">Eight questions on GraalPy and the Flask JAR. Click an answer to see why.</p>
+  <p class="lead">Eleven questions on GraalPy, the Flask JAR and the alternatives. Click an answer to see why.</p>
   <div id="quiz"></div>
   <div class="score"><span>Score: <b id="score">0 / 0</b></span><button id="reset">Start over</button></div>
 </main>
@@ -57,7 +57,13 @@
     { q: 'Of the ~84 MB JAR, roughly how much is the Flask app plus its pip packages (pip included)?', options: ['About 80 MB', 'About half', 'About 6 MB', 'Under 1 kB'], answer: 2,
       why: 'App, venv and pip are about 6 MB compressed, two-thirds of that pip. The rest is GraalPy, the stdlib, Truffle and native libraries: a fixed cost. (3.2)' },
     { q: 'How do you let the Java server handle requests to the Python app in parallel?', options: ['Start Python threads inside the context', 'Remove synchronized from serve()', 'Use several Contexts (a pool), ideally sharing one Engine', 'It is impossible with GraalPy'], answer: 2,
-      why: 'One context runs Python on one thread at a time (there is a GIL). Several contexts run truly in parallel and can share compiled code through a common Engine. (3.4)' }
+      why: 'One context runs Python on one thread at a time (there is a GIL). Several contexts run truly in parallel and can share compiled code through a common Engine. (3.4)' },
+    { q: 'Which runtime can load numpy from a normal CPython wheel?', options: ['Jython', 'JEP', 'GraalPy', 'All three'], answer: 1,
+      why: 'JEP embeds the real CPython, so any wheel built for that CPython loads. Jython has no C-API at all; GraalPy needs packages built for its C-API emulation. (4.3)' },
+    { q: 'On a stock OpenJDK, why does Jython run the pure-Python prime loop faster than GraalPy?', options: ['Jython has a GIL-free loop optimizer', 'Jython compiles Python to JVM bytecode, which HotSpot’s own JIT compiles; GraalPy without Graal only interprets', 'Jython caches results between calls', 'GraalPy runs Python 2 code more slowly'], answer: 1,
+      why: 'Jython turns Python functions into JVM methods. GraalPy is an interpreter that needs the Graal compiler to become fast, and on a GraalVM JDK it beats both. (4.2)' },
+    { q: 'Four JEP SharedInterpreters on four Java threads run a CPU-bound loop. How long does it take compared with one thread?', options: ['About the same: they run in parallel', 'About four times as long: they share CPython’s GIL', 'It deadlocks', 'Half as long'], answer: 1,
+      why: 'SharedInterpreters share the main interpreter and its GIL. Isolated SubInterpreters each have their own GIL and do run in parallel, but extension modules such as numpy must support that. (4.2)' }
   ];
 
   var answered = {}, correct = 0;

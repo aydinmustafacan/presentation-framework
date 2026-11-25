@@ -1,0 +1,16 @@
+0: aload_1
+1: iconst_2
+2: invokevirtual PyFrame.setline
+5: aload_1
+6: iconst_0
+7: invokevirtual PyFrame.getlocal
+10: aload_1
+11: iconst_1
+12: invokevirtual PyFrame.getlocal
+15: invokevirtual PyObject._add
+18: astore_3
+19: aload_1
+20: iconst_m1
+21: putfield PyFrame.f_lasti
+24: aload_3
+25: areturn

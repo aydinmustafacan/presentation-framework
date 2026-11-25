@@ -1,0 +1,32 @@
+.python-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(.8rem, 2vw, 1.7rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.python-timeline li {
+  border-top: 2px solid var(--guest);
+  padding-top: .65rem;
+}
+
+.python-timeline strong {
+  color: var(--guest);
+  font: 700 1.3rem var(--mono);
+}
+
+.python-timeline p {
+  margin: .3rem 0 0;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+.python-paths .flow {
+  margin: .8rem 0;
+}
+
+@media (max-width: 550px) {
+  .python-timeline { grid-template-columns: minmax(0, 1fr); }
+}

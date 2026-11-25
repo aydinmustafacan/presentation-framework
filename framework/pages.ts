@@ -34,6 +34,17 @@ window.addEventListener('message', function (e) {
 if (window.parent === window) return;
 var KEYS = { ArrowRight:1, ArrowLeft:1, PageDown:1, PageUp:1, Home:1, End:1, f:1, s:1, t:1 };
 window.addEventListener('keydown', function (e) {
+  // Chords: Ctrl+A / Ctrl+Shift+A move between sections, Cmd/Ctrl+1 toggles the sidebar.
+  // Ctrl+A is left alone in text fields (select all / line start).
+  var chord = null, el = e.target;
+  var editing = el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName));
+  if (e.code === 'KeyA' && e.ctrlKey && !e.metaKey && !e.altKey && !editing) chord = e.shiftKey ? 'ArrowLeft' : 'ArrowRight';
+  else if (e.code === 'Digit1' && (e.metaKey || e.ctrlKey) && !e.shiftKey && !e.altKey) chord = 's';
+  if (chord) {
+    e.preventDefault();
+    window.parent.postMessage({ __presentation: 'key', key: chord }, '*');
+    return;
+  }
   if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || !KEYS[e.key]) return;
   var t = e.target;
   if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;

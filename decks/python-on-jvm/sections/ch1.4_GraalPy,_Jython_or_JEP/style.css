@@ -1,0 +1,43 @@
+.t-jython { color: var(--teal); }
+.t-jep { color: var(--yellow); }
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--rt);
+  border-radius: 10px;
+  background: var(--panel);
+}
+.stack-head { display: flex; flex-direction: column; gap: 2px; margin-bottom: 4px; }
+.stack-head b { color: color-mix(in srgb, var(--rt), var(--ink-mix) var(--ink-amt)); font-size: 17px; }
+.stack-foot { margin-top: 4px; color: var(--muted); }
+.slayer {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--c);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--c) 6%, var(--panel));
+  color: var(--text);
+  font: 14px var(--ui);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.slayer span { color: var(--muted); font-size: 12px; }
+.slayer[aria-pressed='true'], .slayer:hover { border-color: var(--c); background: color-mix(in srgb, var(--c) 16%, var(--panel)); transform: translateX(2px); }
+.k-java { --c: var(--blue); }
+.k-py { --c: var(--rt, var(--accent)); }
+.k-native { --c: var(--faint); }
+.k-jit { --c: var(--green); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.lg::before { content: ''; display: inline-block; width: 10px; height: 10px; margin-right: 6px; border-radius: 2px; background: var(--c); vertical-align: -1px; }
+.lg.k-py { --c: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  .slayer { transition: none; }
+}

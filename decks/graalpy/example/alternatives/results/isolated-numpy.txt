@@ -1,0 +1,8 @@
+== numpy only in the isolated sub-interpreter
+exit=134
+== numpy first imported by a SharedInterpreter
+shared: numpy ok
+isolated sub: <class 'ImportError'>: Error importing numpy: you should not try to import numpy from
+        its source directory; please exit the numpy source tree, and relaunch
+        your python interpreter from there.
+exit=0

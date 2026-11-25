@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Todos · Flask on GraalPy</title>
+  <style>
+    :root { color-scheme: light dark; --accent: #e76f51; --muted: #888; --line: #8884; }
+    body { font: 16px/1.5 system-ui, sans-serif; max-width: 34rem; margin: 3rem auto; padding: 0 1rem; }
+    h1 { margin: 0 0 .25rem; font-size: 1.8rem; }
+    .sub { color: var(--muted); font-size: .85rem; margin: 0 0 1.5rem; }
+    form.add { display: flex; gap: .5rem; margin-bottom: 1rem; }
+    input[type=text] { flex: 1; padding: .55rem .7rem; font: inherit; border: 1px solid var(--line); border-radius: 6px; background: transparent; }
+    button { font: inherit; cursor: pointer; border: 1px solid var(--line); border-radius: 6px; background: transparent; padding: .35rem .7rem; }
+    button.primary { background: var(--accent); border-color: var(--accent); color: white; padding: .55rem 1rem; }
+    ul { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+    li { display: flex; align-items: center; gap: .6rem; padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    li form { margin: 0; }
+    li .title { flex: 1; word-break: break-word; }
+    li.done .title { text-decoration: line-through; color: var(--muted); }
+    .check { width: 1.6rem; height: 1.6rem; padding: 0; border-radius: 50%; }
+    .del { border: none; color: var(--muted); }
+    .del:hover { color: var(--accent); }
+    footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; font-size: .9rem; color: var(--muted); }
+    footer a { color: inherit; margin-left: .5rem; }
+    footer a.on { color: var(--accent); font-weight: 600; }
+    .empty { color: var(--muted); padding: 1rem 0; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Todos</h1>
+  <p class="sub">Flask served from inside a JAR · Python runtime: <b>{{ runtime }}</b> · data: <code>{{ data_file }}</code></p>
+
+  <form class="add" method="post" action="{{ url_for('create_form') }}">
+    <input type="text" name="title" placeholder="What needs doing?" maxlength="200" autofocus required>
+    <button class="primary">Add</button>
+  </form>
+
+  {% if todos %}
+  <ul>
+    {% for t in todos %}
+    <li class="{{ 'done' if t.done }}">
+      <form method="post" action="{{ url_for('toggle_form', todo_id=t.id) }}">
+        <button class="check" title="Toggle">{{ '✓' if t.done else '' }}</button>
+      </form>
+      <span class="title">{{ t.title }}</span>
+      <form method="post" action="{{ url_for('delete_form', todo_id=t.id) }}">
+        <button class="del" title="Delete">✕</button>
+      </form>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="empty">Nothing here.</p>
+  {% endif %}
+
+  <footer>
+    <span>{{ left }} left</span>
+    <span>
+      <a href="/?show=all" class="{{ 'on' if show == 'all' }}">All</a>
+      <a href="/?show=active" class="{{ 'on' if show == 'active' }}">Active</a>
+      <a href="/?show=done" class="{{ 'on' if show == 'done' }}">Done</a>
+    </span>
+    <form method="post" action="{{ url_for('clear_done_form') }}"><button>Clear done</button></form>
+  </footer>
+</body>
+</html>

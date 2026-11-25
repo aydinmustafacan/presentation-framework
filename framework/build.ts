@@ -89,7 +89,8 @@ async function main() {
 
   // Everything in one file
   const embedded = `<script>window.__PRESENTATION__=${safeJson({ manifest: pub, pages })};</script>`;
-  const single = shellHtml.replace(/<head>/i, `<head>${embedded}`);
+  // A callback keeps dollar-sign sequences in the embedded pages literal.
+  const single = shellHtml.replace(/<head>/i, (head) => head + embedded);
   fs.writeFileSync(path.join(DIST, 'presentation.html'), single);
 
   const mb = (Buffer.byteLength(single) / 1024 / 1024).toFixed(2);
